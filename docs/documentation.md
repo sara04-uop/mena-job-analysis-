@@ -533,14 +533,14 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 **uni dataset visualization**
 
 **Chart 1: Skills by Major and University**
-![Chart 1: Skills by Major and University](image.png)
+![Skills by Major and University](../images/1.jpeg)
 *This clustered column chart compares the number of extracted curriculum skills across majors and universities. It helps identify which universities have stronger skill coverage in specific majors.*
 
 **Insight**
 :*Computer Science shows the highest skill concentration in PSUT, while Al-Zaytoonah shows strong coverage in Accounting, Marketing, and Software Engineering.*
 
 **Chart 2: Number of Courses by Major and University**
-![Chart 2: Number of Courses by Major and University](image-2.png)
+![Chart 2: Number of Courses by Major and University](../images/2.jpeg)
 *This chart shows the number of courses offered by each university for every major. It helps explain whether high skill counts are related to a larger number of courses.*
 
 **Insight**
@@ -549,28 +549,28 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 **job dataset visualization**
 
 **Chart 3: Experience Level Distribution by Country**
-![Chart 3: Experience Level Distribution by Country](image-3.png)
+![Chart 3: Experience Level Distribution by Country](../images/3.jpeg)
 *This chart visualizes how job opportunities are distributed across experience levels in each country.*
 
 **Insight**
 :*UAE has the largest number of job postings across experience levels, which makes it the strongest contributor to the job market dataset.*
 
 **Chart 4: Jobs Distribution by Country**
-![Chart 4: Jobs Distribution by Country](image-4.png)
+![Chart 4: Jobs Distribution by Country](../images/4.jpeg)
 *This pie chart shows the percentage contribution of each country to the total job postings.*
 
 **Insight**
 :*UAE represents the largest share of the dataset, while Jordan has the smallest share.*
 
 **Chart 5: Avg Skills / Job by Sector**
-![Chart 5: Avg Skills / Job by Sector](image-5.png)
+![Chart 5: Avg Skills / Job by Sector](../images/5.jpeg)
 *This chart compares the average number of required skills per job across sectors.*
 
 **Insight**
 :*Accounting and Computer Science require higher average skills per job, which may indicate more complex or detailed job requirements.*
 
 ## chart 6: Skill DNA Match Analysis — University vs Job Market(most important chart)
-![Skill DNA Match Analysis — University vs Job Market](image-6.png)
+![Skill DNA Match Analysis — University vs Job Market](../images/6.jpeg)
 *This horizontal bar chart compares how well three Jordanian universities- AZ, PSUT, and Petra- align their curriculum skills with market demand, broken down by 8 majors.*
 
 **Insight**
@@ -633,7 +633,7 @@ The Executive Overview page provides a high-level summary of the project. It giv
 ---
  
 ## Component 1: KPI Cards — Main Dashboard Indicators
-![KPI cards](image-7.png)
+![KPI cards](../images/bi1.jpeg)
  
 ### Description
  
@@ -659,7 +659,7 @@ This is important because it shows that having many university skills does not a
 ---
  
 ## Component 2: Filters / Slicers
-![Slicer](image-8.png)
+![Slicer](../images/bi2.jpeg)
  
 ### Description
  
@@ -681,7 +681,7 @@ This helps decision-makers explore specific curriculum-market relationships inst
 ---
  
 ## Chart 1: Job Distribution by Country
-![Job Distribution by Country](image-9.png)
+![Job Distribution by Country](../images/bi3.jpeg)
  
 ### Description
  
@@ -705,7 +705,7 @@ This chart supports the business question:
 ---
  
 ## Chart 2: Curriculum Skill Coverage by University
-![Curriculum Skill Coverage by University](image-10.png)
+![Curriculum Skill Coverage by University](../images/bi4.jpeg)
  
 ### Description
  
@@ -731,7 +731,7 @@ The chart shows which university has the highest curriculum skill coverage based
 ---
  
 ## Chart 3: Market Demand Share by Sector
-![Market Demand Share by Sector](image-11.png)
+![Market Demand Share by Sector](../images/bi5.jpeg)
  
 ### Description
  
@@ -769,7 +769,7 @@ The Skills Gap Analysis page focuses on comparing curriculum coverage with marke
 ---
  
 ## Chart 4: Curriculum Coverage by Major & University
-![Curriculum Coverage by Major & University](image-12.png)
+![Curriculum Coverage by Major & University](../images/bi6.jpeg)
  
 ### Description
  
@@ -805,7 +805,7 @@ This chart supports the business question:
 ---
  
 ## Chart 5: Top Underrepresented Market Skills
-![Top Underrepresented Market Skills](image-13.png)
+![Top Underrepresented Market Skills](../images/bi7.jpeg)
  
 ### Description
  
@@ -852,8 +852,7 @@ The Job Evidence page provides detailed evidence from the job market dataset. It
 ---
  
 ## Component 6: Job Evidence Filters
-![Job Evidence Filters](image-14.png)
- 
+![Job Evidence Filters](../images/bi8.jpeg)
 ### Description
  
 This page includes filters for:
@@ -874,7 +873,7 @@ This page includes filters for:
 ---
  
 ## Chart 7: Job Evidence Table
-![Job Evidence Table](image-15.png)
+![Job Evidence Table](../images/bi9.jpeg)
  
 ### Description
  
@@ -912,7 +911,7 @@ The Course Evidence page provides detailed evidence from the university curricul
 ---
  
 ## Component 8: Course Evidence Filters
-![Course Evidence Filters](image-16.png)
+![Course Evidence Filters](../images/bi10.jpeg)
  
 ### Description
  
@@ -934,7 +933,7 @@ This page includes filters for:
 ---
  
 ## Chart 9: Course Evidence Table
-![Course Evidence Table](image-17.png)
+![Course Evidence Table](../images/bi11(1).jpeg)
  
 ### Description
  
@@ -1018,7 +1017,7 @@ we applied three analytical models and one descriptive visualization to identify
 ---
 
 ## Fig 01 — Skill Frequency: University vs. Job Market
-![alt text](fig01_skill_frequency-1.png)
+![alt text](../images/fig01_skill_frequency.png)
 
 ### Type
 Descriptive analysis. Raw frequency counting was used to rank and compare the top 25 skills from each domain side by side.
@@ -1045,7 +1044,7 @@ This mismatch is the core motivation for the models that follow.
 ---
 
 ## Fig 02 — K-Means Job Clustering
-![alt text](fig02_kmeans_clusters.png)
+![alt text](../images/fig02_kmeans_clusters.png)
 
 ### Type
 **Unsupervised Machine Learning — Clustering**, with PCA for 2D visualization.
@@ -1090,7 +1089,7 @@ The MENA job market is not a homogeneous pool — it naturally organizes into fo
 ---
 
 ## Fig 03 — Skill Co-occurrence: Association Rule Mining
-![alt text](fig03_top_association_rules.png)
+![alt text](../images/fig03_top_association_rules.png)
 
 ### Type
 **Unsupervised Machine Learning — Association Rule Learning**, adapted from market basket analysis to skill co-occurrence in job postings.
@@ -1136,7 +1135,7 @@ Employers think in skill bundles, not isolated competencies. A student missing E
 ---
 
 ## Fig 04 — Distinctive Skills per Job Sector
-![alt text](fig04_skills_per_sector.png)
+![alt text](../images/fig04_skills_per_sector.png)
 
 ### Type
 **Custom Statistical Scoring Model** — a lift-based ranking formula applied independently per sector to identify the skills most uniquely characteristic of each sector.
