@@ -1,6 +1,5 @@
 # 🎓 Bridging the Gap: University Curricula vs. MENA Job Market Skills
-![alt text](../images/image.png)
-
+![cover](images/cover.png)
 
 > A graduation project analyzing the skills gap between Jordanian university programs and real employer demands across the MENA region.
 

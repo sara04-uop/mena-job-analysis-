@@ -51,7 +51,7 @@ graduates for the MENA job market.
 
 ## Acknowledgment
 
-We would like to express our sincere gratitude to our supervisor, DR.Husam Barham , for his continuous guidance, constructive feedback, and support throughout the duration of this project. His expertise in Business Intelligence and data analysis greatly shaped our analytical approach and final outcomes.
+We would like to express our sincere gratitude to our supervisors, for there continuous guidance, constructive feedback, and support throughout the duration of this project. There expertise in Business Intelligence and data analysis greatly shaped our analytical approach and final outcomes.
 
 We also thank the faculty of Faculty of Administrative & Financial Sciences at the University of Petra for providing us with the academic foundation and resources necessary to undertake a project of this scope. Special thanks to the university administration offices of UOP, PSUT, and Al-Zaytoonah University for making their curriculum materials publicly accessible, which formed an essential part of our dataset.
 
@@ -190,7 +190,7 @@ ________________________________________________________________________________
 
 Supporting tools were used during the data preparation stage to organize and process the collected university documents, but they were not used to create new data.
 
-**iLovePDF** was used to convert some PDF files into readable text and to merge or split PDF files when needed.
+[**iLovePDF**](www.ilovepdf.com) was used to convert some PDF files into readable text and to merge or split PDF files when needed.
 
 **Claude** was used as an **LLM-assisted extraction tool** to support the structured extraction of skills from official course descriptions. Its role was limited to reading the provided course description text and extracting only the skills, topics, or competencies that were explicitly mentioned or directly supported by the course title when the description was missing.
 
@@ -570,7 +570,9 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 :*Accounting and Computer Science require higher average skills per job, which may indicate more complex or detailed job requirements.*
 
 ## chart 6: Skill DNA Match Analysis — University vs Job Market(most important chart)
-![Skill DNA Match Analysis — University vs Job Market](../images/6.jpeg)
+
+![Skill DNA Match Analysis](../images/skill.jpeg)
+
 *This horizontal bar chart compares how well three Jordanian universities- AZ, PSUT, and Petra- align their curriculum skills with market demand, broken down by 8 majors.*
 
 **Insight**
@@ -933,7 +935,7 @@ This page includes filters for:
 ---
  
 ## Chart 9: Course Evidence Table
-![Course Evidence Table](../images/bi11(1).jpeg)
+![Course Evidence Table](../images/table.jpeg)
  
 ### Description
  
@@ -1402,16 +1404,20 @@ The data confirms that Jordanian graduates arrive with strong conceptual foundat
 The data pipeline built for this project — scraping, LLM-assisted extraction, synonym normalization, and Power BI visualization — is repeatable. Running it annually would allow universities to track whether curriculum reforms are closing the gap over time, creating a feedback loop between education and employment that currently does not exist in the Jordanian higher education system.
 
 ### Recommendations from Student Questionnaire
-
+(https://docs.google.com/forms/d/e/1FAIpQLSdYpr_gesA6oSDuWqPn9NoeB0P1NXGCgPm_vsk-PeI9HDyR1A/viewform?usp=sharing&ouid=100248281304024658561)
 The following recommendations emerge specifically from the student 
 questionnaire data and complement the findings above by adding 
 ground-level evidence. Where overlap exists with the job market 
 recommendations, the questionnaire data serves as independent 
 confirmation from the student perspective.
 
-![google form](image-18.png)
+![google form]![alt text](../images/survey.jpeg)
 
-![google form2](image-19.png)
+![google form2](../images/survey2.jpeg)
+
+![google form3](../images/survey3.jpeg)
+
+
 
 **1. Universities should publish a clean, updated skill list for every 
 course — every semester**
