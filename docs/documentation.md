@@ -390,18 +390,14 @@ The main cleaning steps were:
 4. Extract only supported skills from course descriptions or clearly implied course titles.
 5. Structure the data into the following columns: University, Major, Course Code, Course Name, Skill.
 6. Standardize course codes as text.
-7. Standardize major names into analytical categories.
-8. Normalize skill names.
-9. Control duplicate skill records using the full course context.
-10. Check missing values.
-11. Prepare the final dataset for Excel and Power BI.
+7. Control duplicate skill records using the full course context.
+8. Check missing values.
+9. Prepare the final dataset for Excel and Power BI.
 
 ## University Cleaning Examples
 
 | Cleaning Issue | Example | Action |
 |---|---|---|
-| Duplicate wording | Predictive Analysis / Predictive Analytics | Standardized as Predictive Analytics |
-| Abbreviation variation | Artificial Intelligence / AI | Standardized where suitable |
 | Long outcome sentence | Prepare financial statements | Converted to Financial Statement Preparation |
 | Generic phrase | Modern business technologies | Removed if too vague |
 | Course-code format | 313420 vs "313420" | Stored as text |
@@ -472,19 +468,7 @@ Job skills were aggregated by:
 - Skill frequency
 - Average skills per job
 
-### Step 5 — Skill Normalization
-
-Skills from job descriptions were standardized using a taxonomy to ensure consistent naming. Without normalization, the same skill appearing under multiple surface forms would be severely undercounted:
-
-| Raw Variants | Normalized To |
-|---|---|
-| `"MS Excel"`, `"Microsoft Excel"`, `"Excel"` | `"Microsoft Excel"` |
-| `"Machine Learning"`, `"ML"`, `"AI/ML"` | `"AI/ML"` |
-| `"SAP ERP"`, `"SAP S/4HANA"`, `"SAP"` | `"SAP"` |
-| `"Power BI"`, `"PowerBI"`, `"Power-BI"` | `"Power BI"` |
-
-
-### Step 6: Skill Matching Using Synonym Dictionary
+### Step 5: Skill Matching Using Synonym Dictionary
 
 A synonym dictionary was created to map job market skills to equivalent academic terms. This helped reduce terminology mismatch between industry and university curriculum language.
 
@@ -499,7 +483,7 @@ A synonym dictionary was created to map job market skills to equivalent academic
 The full dictionary contains **54 job market skills** mapped to **209 curriculum equivalents** across four categories: Soft Skills, Technology, Business, and Accounting.
 
 
-### Step 7 — Data Type Conversions
+### Step 6 — Data Type Conversions
 
 **Date Posted** was cleaned from raw Bayt.com text to ISO format `YYYY-MM-DD`:
 
@@ -519,7 +503,7 @@ The full dictionary contains **54 job market skills** mapped to **209 curriculum
 | manager, director, vp, chief, ceo | Managerial |
 | *(anything else)* | Mid-level |
 
-### Step 8 — Deduplication
+### Step 7 — Deduplication
 
 After scraping, the same job posting could appear under multiple search keywords. URL-based deduplication ensured each posting was counted exactly once:
 
