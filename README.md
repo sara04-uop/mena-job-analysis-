@@ -1,5 +1,5 @@
-##                                            🎓 Bridging the Gap
-#                             University Curricula vs. MENA Job Market Skills
+#                                            🎓 Bridging the Gap
+##                            University Curricula vs. MENA Job Market Skills
 ![cover](images/cover.png)
 
 > A graduation project analyzing the skills gap between Jordanian university programs and real employer demands across the MENA region.
@@ -23,35 +23,56 @@ This project investigates whether the skills taught in Jordanian university curr
 | Yusra almuhtaseb | University curriculum data — PDF extraction, LLM skill mapping, cleaning , power BI|
 
 ---
-## 🔍 ???
+## 🔍 Our Project's Story
 
 After studying skills extracted from official course descriptones from three chosen Jordanian universities:
-[The University of Petra]
-[Princess Sumaya University for Technology]
-[Al-Zaytoonah University of Jordan]
+<img width="50" height="50" alt="petra" src="https://github.com/user-attachments/assets/e7b21083-def2-4b88-8227-f8bccdb221b2" />[The University of Petra](www.uop.edu.jo)
+
+<img width="50" height="50" alt="psut" src="https://github.com/user-attachments/assets/c78a3115-c0dc-4670-8526-ea0e5615e44b" />[Princess Sumaya University for Technology](psut.edu.jo)
+
+<img width="50" height="50" alt="zuj" src="https://github.com/user-attachments/assets/58288d6d-df1b-4eca-a854-c346da959912" />[Al-Zaytoonah University of Jordan](www.zuj.edu.jo)
+
 across eight high-demand majors:
+
 (Business Intelligence, Computer Science, Software Engineering, Data Science & AI, Cybersecurity, Accounting, Business Administration, and E-Marketing & Digital Marketing)
-then comapring them to 2k job listings scraped from [bayt.com] across 4 MENA countries:
-UAE
-KSA
-EGYPT
-JORDAN
-we found that:
-**no university covers more than 22% of the skills employers actually ask for** — meaning at least **78% of job-required skills go untaught** across every program we examined.
 
-Each university has relative strengths, but none comes close to full market alignment:
+then comapring them to 2k job listings scraped from [bayt.com](www.Bayt.com) across 4 MENA countries:
 
-- **PSUT** leads in Computer Science (19% match) and Data Science (10% match)
-- **ZUJ** leads in Accounting (21% match), Cybersecurity (15% match), and Business Intelligence (12% match)
-- **UOP** leads in Software Engineering (22% match) and Business Administration (16% match)
+![uae](https://flagcdn.com/24x18/ae.png) UAE
 
-The most critically absent skills across all programs were: **AI/ML, Cloud Computing, ERP systems (SAP/Oracle), Agile/Scrum, DevOps,** and BI tools like **Power BI and Tableau**.
+![ksa](https://flagcdn.com/24x18/sa.png)KSA
+
+![egy](https://flagcdn.com/24x18/eg.png)EGYPT
+
+![jor](https://flagcdn.com/24x18/jo.png)JORDAN
+
+### 🤖 **we found that:**
+
+**1-no university covers more than 22% of the skills employers actually ask for** — meaning at least **78% of job-required skills go untaught** across every program we examined.
+
+**2-The most critically absent skills across all programs were: *AI/ML, Cloud Computing, ERP systems (SAP/Oracle), Agile/Scrum, DevOps,* and BI tools like *Power BI and Tableau*.**
 
 > *Note: Coverage figures are based solely on skills explicitly stated in course syllabi and do not necessarily reflect the full scope of what is taught in practice.*
 
+### 🤖 How the Job Market Actually Groups Itself
+
+To go beyond manual categorization, we used **K-Means Clustering (k=4)** to let the data speak for itself — grouping 2,000 job postings purely by their skill profiles, with no human labels.
+
+The model discovered **4 distinct skill clusters** that naturally emerged from the market:
+
+![K-Means Clustering — Job Postings by Skill Profile](images/fig02_kmeans_clusters.png)
+
+ **The market itself drew this line. By clustering 2,000 job postings 
+ purely by skill patterns, the algorithm confirmed what the gap analysis shows: 
+ *technical and business roles demand fundamentally different skill sets*, 
+ meaning universities cannot close the gap with a single shared curriculum fix.**
+
+> Note:The clusters were **not predefined** — the algorithm found them on its own, which validates that these are real, distinct skill demands in the market.
+
+
 ---
 
-## 🗃️ Datasets we used
+## 🗃️ [Datasets we used]([Data File](../data/processed/Curriculum_vs_Job_Market_Skills_Gap_Analysis_Final.xlsx)
 
 ### University Curriculum Dataset
 - **Source:** Official course syllabi and study-plan PDFs from UOP, PSUT, ZUJ
