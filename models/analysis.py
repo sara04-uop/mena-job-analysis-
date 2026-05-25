@@ -145,9 +145,9 @@ ax.set_title(f"K-Means Clustering — Job Postings by Skill Profile (k=4)\n"
              f"Each dot = one job posting   |   Variance captured: {var:.1f}%",
              fontweight="bold", fontsize=13)
 ax.set_xlabel("Skill similarity dimension 1\n"
-              "(separates technical jobs from non-technical jobs)")
+              "( technical jobs)")
 ax.set_ylabel("Skill similarity dimension 2\n"
-              "(separates finance jobs from sales jobs)")
+              "(Business jobs")
 ax.legend(title="Cluster", loc="best", fontsize=10)
 save(fig, "fig02_kmeans_clusters.png")
 
