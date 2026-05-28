@@ -29,8 +29,9 @@ GREEN   = "#4CAF50"
 sns.set_theme(style="whitegrid", font_scale=1.1)
 plt.rcParams.update({"figure.dpi": 140, "figure.autolayout": True})
 
+# ── UPDATE THESE PATHS TO MATCH YOUR MACHINE ───────────────
 OUTPUT = "C:/Users/Toshiba/OneDrive/Desktop/graduation project files/"
-FILE   = "C:/Users/Toshiba/OneDrive/Desktop/graduation project files/data for analysis.xlsx"
+FILE   = "C:/Users/Toshiba/OneDrive/Desktop/excel data sets with analysis 6.xlsx"
 
 def save(fig, name):
     path = OUTPUT + name
@@ -44,25 +45,21 @@ def save(fig, name):
 # ============================================================
 print("Loading data...")
 
-df_uni = pd.read_excel(FILE, sheet_name="uni", header=1)
-df_job = pd.read_excel(FILE, sheet_name="jobs", header=1)
+# Sheet names in the new file
+df_uni = pd.read_excel(FILE, sheet_name="🎓 UNI-DATASET", header=1)
+df_job = pd.read_excel(FILE, sheet_name="💼JOB-DATASET",  header=1)
+
 df_uni.columns = df_uni.columns.str.strip()
 df_job.columns = df_job.columns.str.strip()
 
-# -- uni columns
-uni_skill  = [c for c in df_uni.columns if "skill"       in c.lower()][0]
-uni_major  = [c for c in df_uni.columns if "major"       in c.lower()][0]
-uni_course = [c for c in df_uni.columns if "course name" in c.lower()][0]
-
-df_uni = df_uni[[uni_major, uni_course, uni_skill]].dropna()
+# ── UNI: columns are University | Major | Course Code | Course Name | Skill
+df_uni = df_uni[["Major", "Course Name", "Skill"]].dropna()
 df_uni.columns = ["Major", "Course", "Skill"]
 df_uni["Skill"] = df_uni["Skill"].str.strip()
 
-# -- job columns
-job_skill  = [c for c in df_job.columns if "skill"  in c.lower()][0]
-job_sector = [c for c in df_job.columns if "sector" in c.lower()][0]
-
-df_job = df_job[[job_sector, job_skill]].dropna(subset=[job_skill])
+# ── JOB: columns are # | Job Title | Company | Location | Sector | Source |
+#         Experience Level | Date Posted | Job Description | Skills | URL | Skill_Count
+df_job = df_job[["Sector", "Skills"]].dropna(subset=["Skills"])
 df_job.columns = ["Sector", "Skills_raw"]
 df_job["Skills"] = df_job["Skills_raw"].apply(
     lambda x: [s.strip() for s in str(x).split(",") if s.strip()])
@@ -70,9 +67,10 @@ df_job = df_job[df_job["Skills"].apply(len) > 0].reset_index(drop=True)
 
 all_job_skills = [s for lst in df_job["Skills"] for s in lst]
 
-print(f"  University skills : {df_uni['Skill'].nunique()}")
-print(f"  Job postings      : {len(df_job)}")
+print(f"  University skills  : {df_uni['Skill'].nunique()}")
+print(f"  Job postings       : {len(df_job)}")
 print(f"  Job skills (unique): {len(set(all_job_skills))}")
+print(f"  Job sectors        : {df_job['Sector'].nunique()}")
 
 
 # ============================================================
@@ -185,104 +183,5 @@ ax.set_xlim(0, rules["lift"].max() * 1.18)
 save(fig, "fig03_top_association_rules.png")
 
 
-# ============================================================
-# FIG 04 — Top Distinctive Skills per Sector (fully automatic)
-# ============================================================
-print("Fig04 — Skills per Sector...")
-
-from collections import Counter as _Counter
-
-sector_counts = df_job["Sector"].value_counts()
-valid_sectors = sector_counts[sector_counts >= 20].index
-df_plot       = df_job[df_job["Sector"].isin(valid_sectors)].copy()
-sectors       = sorted(df_plot["Sector"].unique())
-n_sectors     = len(sectors)
-
-# ── Step 1: auto-detect generic skills ──────────────────────
-# A skill is generic if it appears at >10% rate in almost every sector
-all_skills_set = set(s for lst in df_plot["Skills"] for s in lst)
-skill_sector_presence = {}
-for skill in all_skills_set:
-    count = sum(
-        1 for sector in sectors
-        if sum(1 for lst in df_plot[df_plot["Sector"]==sector]["Skills"] if skill in lst)
-           / len(df_plot[df_plot["Sector"]==sector]) > 0.10
-    )
-    skill_sector_presence[skill] = count
-
-# Skills in (n_sectors - 1) or more sectors = automatically generic
-AUTO_GENERIC = {s for s, c in skill_sector_presence.items() if c >= n_sectors - 1}
-
-# ── Step 2: compute lift per sector ─────────────────────────
-ncols = 2
-nrows = (n_sectors + 1) // ncols
-TOP_N    = 12
-MIN_FREQ = 0.05
-
-fig, axes = plt.subplots(nrows, ncols, figsize=(18, nrows * 5))
-axes = axes.flatten()
-
-for i, sector in enumerate(sectors):
-    # Auto-exclude words that are part of the sector name (prevent circular results)
-    sector_words = set(sector.lower().split())
-
-    in_jobs  = df_plot[df_plot["Sector"] == sector]["Skills"]
-    out_jobs = df_plot[df_plot["Sector"] != sector]["Skills"]
-    n_in, n_out = len(in_jobs), len(out_jobs)
-
-    in_counts, out_counts = _Counter(), _Counter()
-    for lst in in_jobs:
-        for s in lst: in_counts[s] += 1
-    for lst in out_jobs:
-        for s in lst: out_counts[s] += 1
-
-    lift_scores = {}
-    for skill, cnt in in_counts.items():
-        skill_words = set(skill.lower().split())
-        if skill in AUTO_GENERIC:            # auto-remove generic skills
-            continue
-        if skill_words & sector_words:       # auto-remove sector-name leakage
-            continue
-        rate_in  = cnt / n_in
-        rate_out = out_counts.get(skill, 0) / n_out
-        if rate_in < MIN_FREQ:
-            continue
-        lift_scores[skill] = (rate_in / (rate_out + 0.01), rate_in)
-
-    top_skills   = sorted(lift_scores.items(), key=lambda x: -x[1][0])[:TOP_N]
-    skill_names  = [s.title() for s, _ in top_skills][::-1]
-    lift_values  = [v[0] for _, v in top_skills][::-1]
-    freq_values  = [v[1] for _, v in top_skills][::-1]
-
-    ax   = axes[i]
-    bars = ax.barh(skill_names, lift_values,
-                   color=COLORS[i % len(COLORS)],
-                   edgecolor="white", linewidth=0.5)
-
-    for bar, lift, freq in zip(bars, lift_values, freq_values):
-        ax.text(bar.get_width() + 0.03,
-                bar.get_y() + bar.get_height() / 2,
-                f"×{lift:.1f}  ({freq:.0%})",
-                va="center", fontsize=8.5, color="#333333")
-
-    ax.set_title(f"{sector}  (n={n_in})", fontweight="bold", fontsize=13)
-    ax.set_xlabel("Lift score  (how much MORE than other sectors)")
-    ax.set_xlim(0, max(lift_values) * 1.35)
-    for spine in ["top", "right"]:
-        ax.spines[spine].set_visible(False)
-
-for j in range(i + 1, len(axes)):
-    axes[j].set_visible(False)
-
-fig.suptitle(
-    "Top Distinctive Skills per Job Sector\n"
-    "(Lift score — fully automatic, no manual rules: "
-    "generic skills and sector-name words excluded by algorithm)",
-    fontsize=14, fontweight="bold", y=1.01)
-plt.tight_layout()
-fig.savefig(OUTPUT + "fig04_skills_per_sector.png", bbox_inches="tight", dpi=140)
-print("  Saved → " + OUTPUT + "fig04_skills_per_sector.png")
-plt.close(fig)
-
-print("\nAll 4 charts saved successfully.")
+print("\nAll 3 charts saved successfully.")
 print("Files saved in:", OUTPUT)
