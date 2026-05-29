@@ -523,359 +523,268 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ## Dashboard Design & Business Insights
 
- The Power BI dashboard was designed to analyze the relationship between university curriculum skill coverage and MENA job market skill requirements.
- 
-The dashboard includes four main pages:
- 
-1. **Executive Overview**
-2. **Skills Gap Analysis**
-3. **Job Evidence**
-4. **Course Evidence**
- 
-The dashboard answers the main project question:
- 
-> **How well do university curricula align with job market skill requirements?**
- 
-It combines high-level KPIs, interactive filters, visual comparisons, and evidence tables to support the skill gap analysis in a clear and traceable way.
- 
----
-# Dashboard Components and Insights
- 
----
- 
-# Page 1: Executive Overview
- 
-The Executive Overview page provides a high-level summary of the project. It gives the viewer a quick understanding of the dataset size, market skills, university skills, matched skills, and gap percentage.
- 
----
- 
-## Component 1: KPI Cards — Main Dashboard Indicators
-![KPI cards](../images/bi1.jpeg)
- 
-### Description
- 
-The KPI cards show the main numerical summary of the dashboard:
+> **Dashboard Purpose:** Comparing curriculum skill coverage with MENA job market requirements across universities and job sectors.
 
- 
-- **Total Jobs:** 2K
-- **Overall Market Skills:** 186
-- **Overall Distinct University Skills:** 3K
-- **Gap %:** 86%
-- **Matched Skills:** 26
- 
-These cards provide a quick overview of the job market dataset, university curriculum dataset, and the level of matching between them.
- 
-### Insight Derived
- 
-The KPIs show that the job dataset contains **2,000 job postings** and **186 distinct market skills**, while the university dataset contains around **3,000 distinct curriculum skills**.
- 
-However, only **26 skills are matched**, resulting in a high **Gap % of 86%**.
- 
-This is important because it shows that having many university skills does not automatically mean strong market alignment. The key issue is whether the skills taught in curricula match the skills requested by employers.
- 
 ---
- 
-## Component 2: Filters / Slicers
-![Slicer](../images/bi2.jpeg)
- 
-### Description
- 
-The Executive Overview page includes interactive filters for:
- 
-- **Location**
-- **University**
-- **Sector**  *filter for job dataset*
-- **Major**   *filter for uni dataset*
- 
-These filters allow users to narrow the analysis based on country, university, job sector, or academic major.
- 
-### Insight Derived
- 
-The filters make the dashboard interactive and allow more focused analysis. For example, a user can select one university or one sector to see how the results change.
- 
-This helps decision-makers explore specific curriculum-market relationships instead of only looking at the overall results.
- 
----
- 
-## Chart 1: Job Distribution by Country
-![Job Distribution by Country](../images/bi3.jpeg)
- 
-### Description
- 
-This map shows the geographic distribution of job postings across the selected MENA countries. The map highlights the countries included in the job market dataset, such as:
- 
-- Jordan
-- Saudi Arabia
-- UAE
-- Egypt
- 
-### Insight Derived
- 
--The chart helps identify where the collected job demand is geographically concentrated.
- 
-*This is important because skill demand may differ by country, and curriculum alignment should consider the regional job market, not only the local market.*
- 
-This chart supports the business question:
- 
-> **Which countries are represented in the job market dataset?**
- 
----
- 
-## Chart 2: Curriculum Skill Coverage by University
-![Curriculum Skill Coverage by University](../images/bi4.jpeg)
- 
-### Description
- 
-This bar chart compares the overall distinct university skills across the three universities:
- 
-- **ZUJ**
-- **PSUT**
-- **UOP**
- 
-The chart shows which university has the highest curriculum skill coverage based on the extracted curriculum skills.
- 
-### Insight Derived
- 
--The chart shows that **ZUJ has the highest curriculum skill coverage**, followed by **PSUT**, then **UOP**.
- 
--This indicates that ZUJ has the broadest extracted skill coverage in the collected curriculum documents.
- 
-*This is important because it helps compare academic-side skill coverage across universities. However, this chart measures curriculum coverage only.The curriculum skill coverage are based solely on what was explicitly stated in each university's course syllabi and subject descriptions, and do not necessarily reflect the full scope of skills taught in practice(It does not measure teaching quality, university ranking, student performance, or graduate employability.)*
- 
- This chart supports the business question:
- 
-> **Which university has the broadest curriculum skill coverage based on its course syllabi?**
----
- 
-## Chart 3: Market Demand Share by Sector
-![Market Demand Share by Sector](../images/bi5.jpeg)
- 
-### Description
- 
-This treemap shows the distribution of job market demand by sector. The sectors shown include:
- 
-- Data Science
-- Business Administration
-- Accounting
-- Cyber Security
-- E-Marketing & Digital Marketing
-- Business Intelligence
-- Software Engineering
-- Computer Science
- 
-The size of each block represents the sector’s share of job market demand in the dataset.
- 
-### Insight Derived
- 
-The treemap helps identify which sectors represent larger portions of the job market dataset.
- 
-Larger blocks, such as **Data Science** and **Business Administration**, indicate stronger representation in the collected job postings.
- 
-*This is important because sectors with higher job demand should receive more attention when analyzing curriculum alignment and skill gaps.*
 
- This chart supports the business question:
- 
-> **Which job sectors represent the largest share of market skill demand in the MENA region?**
- 
----
- 
-# Page 2: Skills Gap Analysis
- 
-The Skills Gap Analysis page focuses on comparing curriculum coverage with market demand. It helps identify where universities show stronger curriculum coverage and where market skills are underrepresented.
- 
----
- 
-## Chart 4: Curriculum Coverage by Major & University
-![Curriculum Coverage by Major & University](../images/bi6.jpeg)
- 
-### Description
- 
-This horizontal bar chart compares curriculum skill coverage by major and university.
- 
-It shows the number of curriculum skills covered by each university across majors such as:
- 
-- Computer Science
-- Cybersecurity
-- Business Administration
-- Data Science & AI
-- Software Engineering
-- Marketing
-- Accounting
-- Business Intelligence
- 
-Each university is represented with a different bar color.
- 
-### Insight Derived
- 
-The chart shows how curriculum skill coverage differs by major and university.
- 
-Some universities show stronger coverage in technical majors, while others show stronger coverage in business-related majors.
- 
-*This is important because it helps identify relative curriculum strengths by university and major. It also supports curriculum review by showing where each university has broader or weaker skill representation.*
- 
-This chart does not measure academic quality. It only measures the number of extracted curriculum skills from the collected documents.
+## Page 1 — 📊 Executive Overview
+![Executive Overview](../images/5.jpeg)
 
-This chart supports the business question:
- 
-> **How does curriculum skill coverage compare across different majors and universities?**
- 
----
- 
-## Chart 5: Top Underrepresented Market Skills
-![Top Underrepresented Market Skills](../images/bi7.jpeg)
- 
-### Description
- 
-This bar chart shows market skills that appear strongly in the job market but are underrepresented or not clearly matched in the university curriculum dataset.
- 
-The visible skills include:
- 
-- Collaboration
-- Standards Management
-- Deadline Management
-- Software Development
-- Technical Writing
-- Attention to Detail
-- Audit Support
-- Vendor Management
-- AI/ML
-- Regulatory Compliance
- 
-The x-axis shows skill demand, and the y-axis lists the skills.
- 
-### Insight Derived
- 
-The chart identifies skills that may need more attention in curriculum development or clearer representation in course descriptions.
- 
-Skills such as **Collaboration**, **Standards Management**, **Deadline Management**, and **Software Development** appear as important market skills.
- 
-*This is important because it turns the skill gap analysis into actionable curriculum improvement areas. It helps universities see which practical or professional skills are demanded by employers but may not be clearly visible in course descriptions.*
+*Provides a high-level summary of the skills landscape, combining KPI cards, geographic distribution, and structural breakdowns to answer: "What is the overall state of the skills gap?"*
 
-This chart supports the business question:
- 
-> **Which skills are frequently demanded by employers but not explicitly matched in university curricula?**
- 
-### Important Interpretation
- 
-> **Underrepresented does not always mean completely absent.**  
-> It means the skill was not strongly or explicitly matched in the curriculum dataset using the current matching logic.
- 
 ---
- 
-# Page 3: Job Evidence — Market Skill Demand
- 
-The Job Evidence page provides detailed evidence from the job market dataset. It supports the dashboard findings by showing the actual job postings and skills used in the analysis.
- 
----
- 
-## Component 6: Job Evidence Filters
-![Job Evidence Filters](../images/bi8.jpeg)
-### Description
- 
-This page includes filters for:
- 
-- **Location**
-- **Sector**
-- **Skill**
-- **Experience Level**
- 
--These filters allow users to search and validate market demand by selecting a specific country, sector, skill, or experience level.
- 
--The filters allow users to investigate the job market data in detail.
- 
-- For example, a user can filter by a specific skill such as **Accounting Principles** or **Collaboration** and see which job postings required that skill.
- 
-- This improves transparency and makes the analysis easier to defend because the user can verify where each market skill came from.
- 
----
- 
-## Chart 7: Job Evidence Table
-![Job Evidence Table](../images/bi9.jpeg)
- 
-### Description
- 
-This table displays job-level evidence from the job market dataset.
- 
-The visible columns include:
- 
-- Job Title
-- Skill
-- Company
-- Location
-- Sector
-- Experience Level
-- URL
- 
-The table shows examples of job postings and the skills associated with them.
- 
 
--This table validates the job market side of the analysis.
- 
--It shows that the skills used in the dashboard are linked to real job postings, sectors, locations, and experience levels.
- 
--This is important because if a viewer asks why a skill is considered demanded by the market, the dashboard can show the job evidence directly.
- 
-### Example
- 
-If the dashboard shows that **Collaboration** or **Accounting Principles** is demanded, this page can show the job postings where these skills appeared.
- 
+### Filters / Slicers (Interactive Controls)
+
+> These are not charts but control every visual on the page. They let stakeholders slice the entire dashboard by specific dimensions.
+
 ---
- 
-# Page 4: Course Evidence — Curriculum Skill Sources
- 
-The Course Evidence page provides detailed evidence from the university curriculum dataset. It shows where curriculum skills came from inside university courses.
- 
+
+#### Slicer 1: Location Filter
+
+**Description:** A dropdown slicer filtering all visuals by job posting location (pulled from the `JobSkills.Location` field).
+
+**Insight Derived:** Allows stakeholders to isolate the analysis to a specific MENA country or city. Since skills demand varies significantly by geography (e.g., Saudi Arabia vs. UAE vs. Jordan), this filter ensures comparisons are contextually relevant and not diluted by cross-market noise.
+
 ---
- 
-## Component 8: Course Evidence Filters
-![Course Evidence Filters](../images/bi10.jpeg)
- 
-### Description
- 
-This page includes filters for:
- 
-- **Major**
-- **University**
-- **Skill**
-- **Course Code**
- 
--These filters allow users to search for a specific curriculum skill and identify the university course where it appears.
- 
--The filters support academic traceability.
- 
--A user can select a specific university, major, skill, or course code to validate whether a skill appears in the curriculum dataset.
- 
--This is important because it prevents the analysis from being only visual. It allows the user to trace each curriculum skill back to its course source.
- 
+
+#### Slicer 2: University Filter
+
+**Description:** A dropdown slicer filtering all visuals by university name (from `UniversitySkills.University`).
+
+**Insight Derived:** Enables curriculum owners and policy makers to zoom in on a single institution's performance. This is critical for benchmarking — it allows a university to see only its own skill coverage and gap metrics without being conflated with peer institutions.
+
 ---
- 
-## Chart 9: Course Evidence Table
-![Course Evidence Table](../images/table.jpeg)
- 
-### Description
- 
-This table displays curriculum-side evidence.
- 
-The visible columns include:
- 
-- Skill
-- University
-- Major
-- Course Code
-- Course Name
- 
--The table shows each extracted curriculum skill and the course where it appears.
- 
--This table validates the university curriculum side of the analysis.
- 
--It shows that curriculum skills are not random. Each skill is linked to a specific university, major, course code, and course name.
- 
--This is important for academic defense because if a viewer asks where a curriculum skill came from, the dashboard can provide the exact course evidence.
- 
-### Example
- 
-If a skill such as **AI Applications** appears, the Course Evidence page can show the university, major, course code, and course name where it was extracted.
- 
+
+#### Slicer 3: Major Filter
+
+**Description:** A dropdown slicer filtering by academic major (from `UniversitySkills.Major`).
+
+**Insight Derived:** Skills gaps are rarely uniform across all programs. A Computer Science major may cover very different skills than a Business or Engineering major. This filter lets analysts answer "Is the gap a university-wide problem, or concentrated in specific programs?"
+
+---
+
+#### Slicer 4: Sector Filter
+
+**Description:** A dropdown slicer filtering by job market sector (from `JobSkills.Sector`).
+
+**Insight Derived:** Labor market demand differs sharply between sectors (e.g., FinTech vs. Healthcare vs. Government). This slicer allows the analysis to be scoped to sectors most relevant to a university's target employment outcomes.
+
+---
+
+### KPI Cards
+
+*These five cards provide the headline numbers — the "at a glance" metrics that set context for everything else on the page.*
+
+---
+
+#### Chart 1: Total Jobs
+
+**Description:** A KPI card displaying the total count of job postings analyzed from the MENA market (measure: `Dim_Skills.Total Jobs`).
+
+**Insight Derived:** Establishes the sample size and scope of the market intelligence behind this dashboard. A high count lends statistical credibility to the skill demand signals. Stakeholders can use this to assess whether the job market data is robust enough to drive curriculum decisions.
+
+---
+
+#### Chart 2: Market Skills
+
+**Description:** A KPI card showing the total number of distinct skills identified across all job postings (measure: `Dim_Skills.Market Skills`).
+
+**Insight Derived:** Communicates the breadth of skills that employers are actively requesting. This is the denominator for the gap calculation — if universities only cover a fraction of these, the urgency of curriculum reform is immediately visible.
+
+---
+
+#### Chart 3: University Skill Records
+
+**Description:** A KPI card displaying the total count of skill records extracted from university course offerings (measure: `Dim_Skills.University Skill Records`).
+
+**Insight Derived:** Represents the supply side of the skills equation. Comparing this to "Market Skills" reveals whether universities are producing enough skill diversity to meet demand, or whether they are training students in a narrow set of competencies.
+
+---
+
+#### Chart 4: Dictionary Matched Skills
+
+**Description:** A KPI card showing the number of university skills that were successfully matched to market-demanded skills through a skills dictionary (measure: `Dim_Skills.Dictionary Matched Skills`).
+
+**Insight Derived:** This is the intersection metric — skills that universities teach AND employers want. The higher this number relative to Market Skills, the better the curriculum alignment. This directly answers: "How much of what we teach is actually relevant to employers?"
+
+---
+
+#### Chart 5: Dictionary Gap %
+
+**Description:** A KPI card displaying the percentage of market-demanded skills that are NOT covered by any university curriculum (measure: `Dim_Skills.Dictionary Gap %`).
+
+**Insight Derived:** The single most important headline metric in the dashboard. A high gap percentage signals a systemic misalignment between education and employment. This number should drive urgency in curriculum reform conversations with deans, accreditation bodies, and ministry stakeholders.
+
+---
+
+#### Chart 6: Dictionary Missing Market Skills
+
+**Description:** A KPI card showing the raw count of market skills that have no match in any university curriculum (measure: `Dim_Skills.Dictionary Missing Market Skills`).
+
+**Insight Derived:** Provides the absolute count behind the gap percentage. While the percentage contextualizes the problem, this number communicates its concrete scale — e.g., "Students are never exposed to X skills that employers demand." This supports prioritization of which skills to introduce first.
+
+---
+
+### Charts
+
+---
+
+#### Chart 7: University Skill Records by University (Column Chart)
+
+**Description:** A clustered column chart plotting each university on the X-axis against the count of skill records in its curriculum on the Y-axis (fields: `UniversitySkills.University` × `Dim_Skills.University Skill Records`).
+
+**Insight Derived:** Immediately reveals which universities have the most skill-rich curricula and which are comparatively sparse. A university with few skill records is not necessarily failing — but when overlaid with gap data, it can indicate whether breadth correlates with better market alignment. This supports competitive benchmarking and peer learning.
+
+---
+
+#### Chart 8: Total Jobs by Sector (Treemap)
+
+**Description:** A treemap where each rectangle represents a job sector, sized proportionally by the number of job postings in that sector (fields: `JobSkills.Sector` × `Dim_Skills.Total Jobs`).
+
+**Insight Derived:** Visually communicates where labor market demand is concentrated. Larger tiles indicate sectors with the most hiring activity. Universities can use this to prioritize which sectors their graduates should be prepared for and to assess whether their curriculum emphasis matches market size. For example, if the Technology sector dominates but the curriculum skews toward traditional fields, that misalignment becomes visually obvious.
+
+---
+
+#### Chart 9: Job Demand by Location (Azure Map)
+
+**Description:** A geographic map visual plotting job posting volume across MENA locations, with bubble size or color intensity representing `Dim_Skills.Total Jobs` per location (fields: `JobSkills.Location` × `Dim_Skills.Total Jobs`).
+
+**Insight Derived:** Reveals the geographic distribution of labor demand across the MENA region. This tells universities where their graduates are most likely to be employed and highlights high-opportunity markets. It also supports decisions about which country-specific skill requirements to prioritize — a university in Jordan training graduates for UAE tech jobs needs to align with UAE employer expectations specifically.
+
+---
+
+## Page 2 — 📊 Skills Gap Analysis
+
+*Deep-dives into the specific skills driving the gap, answering: "Which exact skills are missing, and which universities/majors are falling furthest behind?"*
+
+---
+
+#### Chart 10: Missing Market Skills by Job Skill (Clustered Bar Chart)
+
+**Description:** A horizontal clustered bar chart ranking individual job skills by their demand score among postings where no university curriculum match was found (fields: `JobSkills.JobSkill` × `Dim_Skills.Dictionary Missing Skill Demand`).
+
+**Insight Derived:** This is the most actionable chart in the entire dashboard. It produces a prioritized list of skills that universities must add to their curricula. The highest bars represent skills with the greatest employer demand and zero academic coverage — the "quick wins" for curriculum designers. Ministry of Education and accreditation reviewers can use this chart to mandate minimum coverage requirements.
+
+---
+
+#### Chart 11: University Skill Records by Major and University (Clustered Bar Chart)
+
+**Description:** A grouped/clustered bar chart showing skill record counts broken down by academic major on the X-axis, with separate bars per university (fields: `UniversitySkills.Major` × `Dim_Skills.University Skill Records`, series by `UniversitySkills.University`).
+
+**Insight Derived:** Enables a two-dimensional comparison — across both programs (majors) and institutions. It answers: "Which university has the most comprehensive curriculum for a given major?" and "Which major has the biggest skill coverage disparity between institutions?" This supports cross-institutional collaboration (strong departments can share syllabi) and helps students choose universities based on skill depth in their intended field.
+
+---
+
+## Page 3 — 💼 Job Evidence
+
+*Provides the raw source data underpinning all market skill demand claims. Answers: "Where does this job market data come from, and can I verify it?"*
+
+---
+
+#### Chart 12: Job Postings Detail Table
+
+**Description:** A detailed data table listing individual job postings with columns for Job Title, Skill, Company, and Location (fields: `JobSkills.Job Title`, `JobSkills.Skill`, `JobSkills.Company`, `JobSkills.Location`).
+
+**Insight Derived:** Provides full transparency and auditability of the market data powering the dashboard. Users can verify that specific skills attributed to specific sectors or locations are supported by real, named job postings from real companies. This builds trust in the analysis and allows curriculum committees to quote actual employer requirements in reform proposals.
+
+---
+
+### Page 3 Filters
+
+#### Slicer 5: Location (Job Evidence)
+
+**Description:** Filters the job postings table by geographic location.
+
+**Insight Derived:** Allows verification of market skill data for a specific market — e.g., confirming that Python is genuinely in demand in Riyadh versus Amman.
+
+---
+
+#### Slicer 6: Sector (Job Evidence)
+
+**Description:** Filters the job postings table by industry sector.
+
+**Insight Derived:** Allows curriculum teams to drill into evidence for a specific sector's skill requirements, supporting targeted program design (e.g., a dedicated FinTech track).
+
+---
+
+#### Slicer 7: Skill (Job Evidence)
+
+**Description:** Filters the job postings table by a specific skill keyword.
+
+**Insight Derived:** Lets users validate how many postings actually mention a given skill, and from which companies and locations — converting aggregate dashboard numbers into granular, citable evidence.
+
+---
+
+#### Slicer 8: Experience Level (Job Evidence)
+
+**Description:** Filters the job postings table by required experience level (e.g., Entry, Mid, Senior).
+
+**Insight Derived:** Skill requirements differ by seniority. Entry-level positions may require Python basics; senior roles may require ML Engineering or system design. Universities primarily prepare entry-level graduates, so filtering to entry-level postings ensures the gap analysis is calibrated to realistic graduate employment targets.
+
+---
+
+## Page 4 — 🎓 Course Evidence
+
+*Provides the raw source data underpinning all curriculum skill coverage claims. Answers: "Which courses are actually contributing these skills, and how are they distributed?"*
+
+---
+
+#### Chart 13: Course Skills Detail Table
+
+**Description:** A detailed data table showing individual skill records extracted from university courses, with columns for Skill, University, Major, and Course Code (fields: `UniversitySkills.Skill`, `UniversitySkills.University`, `UniversitySkills.Major`, `UniversitySkills.Course Code`).
+
+**Insight Derived:** Makes the curriculum data fully traceable and auditable — every skill attributed to a university can be traced back to the exact course that teaches it. This is essential for curriculum gap remediation: when a missing skill is identified, this table lets academic coordinators identify which department owns the gap and which course(s) could be modified to address it. It also surfaces skill redundancy (the same skill taught in many courses) versus coverage gaps.
+
+---
+
+### Page 4 Filters
+
+#### Slicer 9: Major (Course Evidence)
+
+**Description:** Filters the course skills table by academic major.
+
+**Insight Derived:** Isolates the skill profile of a single program, making it easy for a program director to audit what their specific major teaches versus what the market demands.
+
+---
+
+#### Slicer 10: University (Course Evidence)
+
+**Description:** Filters the course skills table by institution.
+
+**Insight Derived:** Allows a single university to review only its own course-to-skill mappings without noise from peer institutions — essential for internal curriculum review sessions.
+
+---
+
+#### Slicer 11: Skill (Course Evidence)
+
+**Description:** Filters the course skills table by skill name.
+
+**Insight Derived:** Quickly answers "Which of our courses teach this specific skill?" — allowing curriculum planners to assess whether a high-demand skill is taught at all, taught once, or sufficiently embedded across the program.
+
+---
+
+#### Slicer 12: Course Code (Course Evidence)
+
+**Description:** Filters the course skills table by specific course code.
+
+**Insight Derived:** Enables a course-level audit — "What skills does this one course contribute?" This is useful for course revision cycles, accreditation documentation, and identifying which courses are the highest-value contributors to market alignment.
+
+---
+
+## Summary: Business Questions Answered by This Dashboard
+
+| Business Question | Where It's Answered |
+|---|---|
+| What is the overall size of the skills gap? | Chart 5 (Gap %), Chart 6 (Missing Skills Count) |
+| Which skills are most urgently missing? | Chart 10 (Missing Skills Bar Chart) |
+| Which universities have the broadest curricula? | Chart 7 (Column Chart), Chart 11 (Clustered Bar) |
+| Which sectors have the most job demand? | Chart 8 (Treemap) |
+| Where geographically is hiring concentrated? | Chart 9 (Azure Map) |
+| Is the gap specific to one major or university-wide? | Chart 11 + Major/University Slicers |
+| What is the evidence behind market skill claims? | Chart 12 (Job Evidence Table) + Page 3 Slicers |
+| What is the evidence behind curriculum skill claims? | Chart 13 (Course Evidence Table) + Page 4 Slicers |
+| How does skill coverage compare across institutions? | Chart 7, Chart 11 |
 ---
  
 # Overall Dashboard Business Insights
