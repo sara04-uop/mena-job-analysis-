@@ -363,7 +363,7 @@ A third pattern is **consistent skill co-occurrence**: market skills cluster tig
 📌 **Structural finding:** No university achieves a strong skill match in any major across all three institutions. Curriculum gaps are systematic across all majors — not confined to any single program.
 ---
 
-## Data Preparation and Cleaning
+## Data Primary Cleaning and Transformation
 
 ### University Dataset Preparation
 
@@ -528,7 +528,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 1 — 📊 Executive Overview
-![Executive Overview](../images/5.jpeg)
+![Executive Overview](../images/dashboard1.jpeg)
 
 *Provides a high-level summary of the skills landscape, combining KPI cards, geographic distribution, and structural breakdowns to answer: "What is the overall state of the skills gap?"*
 
@@ -574,7 +574,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ### KPI Cards
 
-*These five cards provide the headline numbers — the "at a glance" metrics that set context for everything else on the page.*
+*These six cards provide the headline numbers — the "at a glance" metrics that set context for everything else on the page.*
 
 ---
 
@@ -630,7 +630,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-#### Chart 7: University Skill Records by University (Column Chart)
+#### Chart 7: cirriculum skill coverage by University (Column Chart)
 
 **Description:** A clustered column chart plotting each university on the X-axis against the count of skill records in its curriculum on the Y-axis (fields: `UniversitySkills.University` × `Dim_Skills.University Skill Records`).
 
@@ -638,7 +638,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-#### Chart 8: Total Jobs by Sector (Treemap)
+#### Chart 8: market demand share by Sector (Treemap)
 
 **Description:** A treemap where each rectangle represents a job sector, sized proportionally by the number of job postings in that sector (fields: `JobSkills.Sector` × `Dim_Skills.Total Jobs`).
 
@@ -646,7 +646,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-#### Chart 9: Job Demand by Location (Azure Map)
+#### Chart 9: Job distribution by Location (Azure Map)
 
 **Description:** A geographic map visual plotting job posting volume across MENA locations, with bubble size or color intensity representing `Dim_Skills.Total Jobs` per location (fields: `JobSkills.Location` × `Dim_Skills.Total Jobs`).
 
@@ -655,12 +655,13 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 2 — 📊 Skills Gap Analysis
+![Skills Gap Analysis](../images/dashboard2.jpeg)
 
 *Deep-dives into the specific skills driving the gap, answering: "Which exact skills are missing, and which universities/majors are falling furthest behind?"*
 
 ---
 
-#### Chart 10: Missing Market Skills by Job Skill (Clustered Bar Chart)
+#### Chart 10: Top underepresented Market Skills (Clustered Bar Chart)
 
 **Description:** A horizontal clustered bar chart ranking individual job skills by their demand score among postings where no university curriculum match was found (fields: `JobSkills.JobSkill` × `Dim_Skills.Dictionary Missing Skill Demand`).
 
@@ -668,7 +669,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-#### Chart 11: University Skill Records by Major and University (Clustered Bar Chart)
+#### Chart 11: cirriculum coverage by Major and University (Clustered Bar Chart)
 
 **Description:** A grouped/clustered bar chart showing skill record counts broken down by academic major on the X-axis, with separate bars per university (fields: `UniversitySkills.Major` × `Dim_Skills.University Skill Records`, series by `UniversitySkills.University`).
 
@@ -677,6 +678,8 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 3 — 💼 Job Evidence
+![Job Evidence](../images/dashboard3.jpeg)
+
 
 *Provides the raw source data underpinning all market skill demand claims. Answers: "Where does this job market data come from, and can I verify it?"*
 
@@ -684,7 +687,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 #### Chart 12: Job Postings Detail Table
 
-**Description:** A detailed data table listing individual job postings with columns for Job Title, Skill, Company, and Location (fields: `JobSkills.Job Title`, `JobSkills.Skill`, `JobSkills.Company`, `JobSkills.Location`).
+**Description:** A detailed data table listing individual job postings with columns for Job Title, Skill, Company ,Location, Sector, Experience Level, URL (fields: `JobSkills.Job Title`, `JobSkills.Skill`, `JobSkills.Company`, `JobSkills.Location` , `JobSkills.Sector` , `JobSkills.Experience Level` , `JobSkills.URL`).
 
 **Insight Derived:** Provides full transparency and auditability of the market data powering the dashboard. Users can verify that specific skills attributed to specific sectors or locations are supported by real, named job postings from real companies. This builds trust in the analysis and allows curriculum committees to quote actual employer requirements in reform proposals.
 
@@ -725,6 +728,8 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 4 — 🎓 Course Evidence
+![Course Evidence](../images/dashboard4.jpeg)
+
 
 *Provides the raw source data underpinning all curriculum skill coverage claims. Answers: "Which courses are actually contributing these skills, and how are they distributed?"*
 
@@ -732,7 +737,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 #### Chart 13: Course Skills Detail Table
 
-**Description:** A detailed data table showing individual skill records extracted from university courses, with columns for Skill, University, Major, and Course Code (fields: `UniversitySkills.Skill`, `UniversitySkills.University`, `UniversitySkills.Major`, `UniversitySkills.Course Code`).
+**Description:** A detailed data table showing individual skill records extracted from university courses, with columns for Skill, University, Major,Course Code,Course Name(fields: `UniversitySkills.Skill`, `UniversitySkills.University`, `UniversitySkills.Major`, `UniversitySkills.Course Code` , `UniversitySkills.Course Name`).
 
 **Insight Derived:** Makes the curriculum data fully traceable and auditable — every skill attributed to a university can be traced back to the exact course that teaches it. This is essential for curriculum gap remediation: when a missing skill is identified, this table lets academic coordinators identify which department owns the gap and which course(s) could be modified to address it. It also surfaces skill redundancy (the same skill taught in many courses) versus coverage gaps.
 
@@ -791,15 +796,15 @@ df.drop_duplicates(subset=["URL"], inplace=True)
  
 ## Insight 1: University skill coverage is larger than market skill coverage, but alignment is limited.
  
-The dashboard shows around **3K university skills** compared with **186 market skills**, but only **26 matched skills**.
+The dashboard shows around **1145K university skills** compared with **308 market skills**, but only **68 matched skills**.
  
 This means that universities may cover many academic skills, but not all of them directly match the specific skills requested in job postings.
  
 ---
  
-## Insight 2: ZUJ shows the broadest curriculum skill coverage in the collected documents.
+## Insight 2: UOP shows the broadest curriculum skill coverage in the collected documents.
  
-The Curriculum Skill Coverage by University chart shows ZUJ with the highest overall distinct curriculum skills.
+The Curriculum Skill Coverage by University chart shows UOP with the highest overall distinct curriculum skills.
  
 This indicates broader curriculum skill representation in the collected source documents.
  
