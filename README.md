@@ -74,7 +74,7 @@ This project investigates whether the skills taught in Jordanian university curr
 
 ---
 
-## 🗃️ [Datasets we used](../data/processed/excel%20data%20sets%20with%20analysis%206.xlsx)
+## 🗃️ [Datasets we used](https://docs.google.com/spreadsheets/d/1huOD8G6YC7JgeGxmkFI5_vPosE0DIV-HyKe_-KiU6MY/edit?usp=sharing)
 
 ### University Curriculum Dataset
 - **Source:** Official course syllabi and study-plan PDFs from UOP, PSUT, ZUJ
@@ -109,7 +109,7 @@ This project investigates whether the skills taught in Jordanian university curr
 ## 🤖 Models Built
 
 **Four analytical models, each answering a different question about the data.**
-> 📄 [View full model documentation with results and charts](#advanced-analytics-and-ai-modeling)
+> 📄 [View full models documentation with results and charts](#Advanced Analytics and AI Modeling)
 
 | # | Model Type | Purpose |
 |---|---|---|
