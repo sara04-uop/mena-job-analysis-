@@ -1,4 +1,4 @@
-#                                            🎓 Bridging the Gap
+#                                                     🎓 Bridging the Gap
 ##                            University Curricula vs. MENA Job Market Skills
 ![cover](images/cover.png)
 
@@ -48,13 +48,13 @@ This project investigates whether the skills taught in Jordanian university curr
 
 ![jor](https://flagcdn.com/24x18/jo.png)JORDAN
 
-### 🤖 **we found that:**
+### 🤖 **We found that:**
 
-**1-no university covers more than 22% of the skills employers actually ask for** — meaning at least **78% of job-required skills go untaught** across every program we examined.
+**1 — No university covers more than 22% of the skills employers actually ask for** — meaning at least **78% of job-required skills go undertaught** across every program we examined.
 
-**2-The most critically absent skills across all programs were: *AI/ML, Cloud Computing, ERP systems (SAP/Oracle), Agile/Scrum, DevOps,* and BI tools like *Power BI and Tableau*.**
+**2 — The most critically absent skills across all programs were: *Communication, Problem Solving, Data Analysis, Forecasting, CRM Systems, Python,* and *SQL*.**
 
-> *Note: Coverage figures are based solely on skills explicitly stated in course syllabi and do not necessarily reflect the full scope of what is taught in practice.*
+> *Note: Coverage figures are based on dictionary-matched skills between the **308 distinct market skills** identified across 2,000 MENA job postings and the **1,145 curriculum skill records** collected from UOP, PSUT, and ZUJ. Only **68 skills** were matched, producing a Dictionary Gap of **78%**, with **240 market skills** remaining unmatched. Figures reflect skills explicitly stated in course syllabi and do not necessarily reflect the full scope of what is taught in practice.*
 
 ### 🤖 How the Job Market Actually Groups Itself
 
@@ -79,7 +79,7 @@ This project investigates whether the skills taught in Jordanian university curr
 ### University Curriculum Dataset
 - **Source:** Official course syllabi and study-plan PDFs from UOP, PSUT, ZUJ
 - **Extraction method:** Manual extraction then LLM-powered skill extraction with a structured prompt
-- **Size:** 3,692 skill rows | 551 unique course codes across 3 universities
+- **Size:** 3,692 skill rows | 506 unique course codes across 3 universities
 - **Fields:** University, Major, Course Code, Course Name, Skill
 
 ### Job Market Dataset
@@ -87,10 +87,6 @@ This project investigates whether the skills taught in Jordanian university curr
 - **Coverage:** 4 MENA countries — UAE, Saudi Arabia, Egypt, Jordan
 - **Size:** 2,000 job postings across 8 sectors
 - **Fields:** Job Title, Company, Location, Country, Sector, Skills, Experience Level, URL
-
-### Skill Synonym Dictionary
-- 54 job market skills mapped to 209 curriculum equivalents
-- Bridges terminology differences between industry and academia (e.g., "Collaboration" → "Teamwork, Group Work, Team Projects")
 
 ---
 
@@ -114,24 +110,23 @@ This project investigates whether the skills taught in Jordanian university curr
 **Four analytical models, each answering a different question about the data.**
 
 | # | Model Type | Purpose |
-|---|-----------|---------|
-| 1 | TF-IDF Vectorizer | Convert skills to numerical vectors for analysis |
-| 2 | K-Means Clustering | Group job postings by skill profile |
-| 3 | Association Rule Mining (Apriori) | Discover skills that always appear together in job postings |
-| 4 | Lift Score (per sector) | Identify the most distinctive skills per job sector |
-
+|---|---|---|
+| 1 | Frequency Analysis | Rank and compare the top 25 skills from university curricula vs. job market side by side |
+| 2 | TF-IDF Vectorizer + K-Means Clustering | Convert skill lists into numerical vectors, then group job postings into 4 distinct skill profiles |
+| 3 | Apriori Association Rule Mining | Discover which skills consistently co-occur in job postings and must be taught as a bundle |
 ---
 
 ## 📊 Power BI Dashboard
+
 **An interactive 4-page dashboard summarizing the full findings.**
 
-1. **Executive Overview** — KPI cards, skill status donut, top market gaps treemap
- 
-2. **Market Alignment Analysis** — University vs. market bar chart, MENA jobs map
- 
-3. **Job Evidence** — Full table of job postings supporting market skill data
+1. **Executive Overview** — KPI cards (Total Jobs, Market Skills, University Skill Records, Dictionary Matched Skills, Dictionary Gap %, Dictionary Missing Market Skills), Curriculum Skill Coverage by University column chart, Market Demand Share by Sector treemap, and Job Distribution by Country map
 
-4. **Course Evidence** — Full table of university courses supporting curriculum data
+2. **Skills Gap Analysis** — Top Underrepresented Market Skills bar chart, Curriculum Coverage by Major & University clustered bar chart
+
+3. **Job Evidence** — Full table of job postings (Job Title, Skill, Company, Location, Sector, Experience Level) with slicers for Location, Sector, Skill, and Experience Level
+
+4. **Course Evidence** — Full table of university courses (Skill, University, Major, Course Code, Course Name) with slicers for Major, University, Skill, and Course Code data
 
 ---
 
@@ -153,11 +148,35 @@ requests
 
 ## ⚠️ Limitations
 
-- Curriculum skill coverage is based on explicit mentions in course descriptions only — actual classroom content may be broader.
+- Curriculum skill coverage is based on explicit mentions in course descriptions
+  only — actual classroom content may be broader than what is documented in
+  official syllabi.
 
-- Job market data was collected as a sample; Egypt and KSA counts show low variance across sectors, likely due to scraping caps on the source website.
+- Egypt and KSA job counts show low variance across sectors, likely because
+  the scraper was capped at 10 result pages per keyword — meaning the dataset
+  reflects a fixed sample ceiling rather than the true distribution of job
+  postings across sectors in those markets.
 
-- Job postings from Jordan were inherently limited in volume, as Bayt.com contains significantly fewer Jordanian listings compared to other MENA countries such as the UAE and Saudi Arabia, this reflects the platform's regional usage patterns rather than a data collection issue.
+- Job postings from Jordan were inherently limited in volume, as Bayt.com
+  contains significantly fewer Jordanian listings compared to other MENA
+  countries such as the UAE and Saudi Arabia. This reflects the platform's
+  regional usage patterns rather than a data collection issue.
+
+- The 78% skills gap figure may overstate the true misalignment due to
+  terminology differences between academic and industry language. Skills
+  that are conceptually equivalent but differently named — such as
+  "Financial Statement Preparation" vs. "Financial Reporting" — are counted
+  as unmatched. The synonym dictionary built for this project corrected for
+  54 known cases, but residual mismatch likely remains.
+
+- All data was collected during a fixed window (March–April 2026). Job market
+  skill demand evolves continuously, and findings may not reflect current
+  employer expectations beyond this period.
+
+- The study covers three private Jordanian universities only. Public
+  universities such as the University of Jordan and Yarmouk University are
+  not represented, meaning findings cannot be generalized to the Jordanian
+  higher education system as a whole.
 
 
 ---
