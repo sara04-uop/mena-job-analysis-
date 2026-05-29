@@ -363,7 +363,7 @@ A third pattern is **consistent skill co-occurrence**: market skills cluster tig
 📌 **Structural finding:** No university achieves a strong skill match in any major across all three institutions. Curriculum gaps are systematic across all majors — not confined to any single program.
 ---
 
-## Data Preparation and Cleaning
+## Data Primary Cleaning and Transformation
 
 ### University Dataset Preparation
 
@@ -528,7 +528,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 1 — 📊 Executive Overview
-![Executive Overview](../images/5.jpeg)
+![Executive Overview](../images/dashboard1.jpeg)
 
 *Provides a high-level summary of the skills landscape, combining KPI cards, geographic distribution, and structural breakdowns to answer: "What is the overall state of the skills gap?"*
 
@@ -655,6 +655,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 2 — 📊 Skills Gap Analysis
+![Skills Gap Analysis](../images/dashboard2.jpeg)
 
 *Deep-dives into the specific skills driving the gap, answering: "Which exact skills are missing, and which universities/majors are falling furthest behind?"*
 
@@ -677,6 +678,8 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 3 — 💼 Job Evidence
+![Job Evidence](../images/dashboard3.jpeg)
+
 
 *Provides the raw source data underpinning all market skill demand claims. Answers: "Where does this job market data come from, and can I verify it?"*
 
@@ -725,6 +728,8 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 4 — 🎓 Course Evidence
+![Course Evidence](../images/dashboard4.jpeg)
+
 
 *Provides the raw source data underpinning all curriculum skill coverage claims. Answers: "Which courses are actually contributing these skills, and how are they distributed?"*
 
