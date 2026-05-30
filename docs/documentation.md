@@ -1,14 +1,14 @@
 # Jordanian Universities vs. Job Market Skills Gap Analysis — MENA Region
 
 **Authors**
-- [Sara Alzwiri], [202210884]
-- [Yusra Almuhtaseb], [202210396]
+- Sara Alzwiri, 202210884
+- Yusra Almuhtaseb, 202210396
 
-**Supervised by:** [DR.Husam Barham]
+**Supervised by:** DR.Husam Barham
 
 **Course:** 307498 – Graduation Project
 **Semester:** Seconde Semester, 2025/2026
-**Date:** [Submission Date]
+**Date:** Submission Date
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## Abstract
 
-Higher education institutions in Jordan face a growing challenge: ensuring that graduates are equipped with the skills that employers in the MENA region actually demand. This project investigates the skills gap between what three Jordanian universities — the University of Petra (UOP), Princess Sumaya University for Technology (PSUT), and Al-Zaytoonah University of Jordan (ZUJ) — teach across eight academic majors(in fields between IT and Business), and what the MENA job market requires. By systematically collecting and comparing 2,000 job postings from Bayt.com across four MENA countries (UAE, Saudi Arabia, Egypt, Jordan) with 1,145 university course–skill records, this project surfaces concrete, data-driven evidence of where curriculum falls short of market expectations.
+Higher education institutions in Jordan face a growing challenge: ensuring that graduates are equipped with the skills that employers in the MENA region actually demand. This project investigates the skills gap between what three Jordanian universities the University of Petra (UOP), Princess Sumaya University for Technology (PSUT), and Al-Zaytoonah University of Jordan (ZUJ) teach across eight academic majors(in fields between IT and Business), and what the MENA job market requires. By systematically collecting and comparing 2,000 job postings from Bayt.com across four MENA countries (UAE, Saudi Arabia, Egypt, Jordan) with 1,145 university course–skill records, this project surfaces concrete, data-driven evidence of where curriculum falls short of market expectations.
 
 To achieve this, we built a custom Python web scraper using Selenium to collect live job postings from Bayt.com, extracted required skills from full job descriptions, and manually compiled curriculum skill data from official university course catalogs. The two datasets were cleaned, normalized, and compared to compute a Skill DNA Match percentage per university–major combination. Advanced analytics techniques were then applied: K-Means clustering to identify distinct job profiles in the market, Apriori association rule mining to discover which skills consistently co-occur in postings, and a lift-score model to identify skills that are uniquely distinctive per sector. All findings were visualized through Python charts and an interactive Power BI dashboard.
 
