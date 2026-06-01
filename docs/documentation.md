@@ -528,7 +528,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 ---
 
 ## Page 1 — 📊 Executive Overview
-![Executive Overview](../images/dashboard1.jpeg)
+![Executive Overview](../images/image%20(2).png)
 
 *Provides a high-level summary of the skills landscape, combining KPI cards, geographic distribution, and structural breakdowns to answer: "What is the overall state of the skills gap?"*
 
