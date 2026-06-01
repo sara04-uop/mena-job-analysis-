@@ -95,7 +95,7 @@ This project investigates whether the skills taught in Jordanian university curr
 
 | Category | Tools |
 |----------|-------|
-| Data Collection | Python, Selenium, BeautifulSoup |
+| Data Collection | Python, Selenium, BeautifulSoup, ilovePDF |
 | Data Processing | Pandas, OpenPyXL |
 | Machine Learning | Scikit-learn (K-Means, Random Forest), MLxtend (Apriori) |
 | Visualization | Matplotlib, Seaborn |
@@ -108,7 +108,7 @@ This project investigates whether the skills taught in Jordanian university curr
 
 ## 🤖 Models Built
 
-**Four analytical models, each answering a different question about the data.**
+**Three analytical models, each answering a different question about the data.**
 > 📄 [View full model documentation with results and charts](docs/documentation.md#advanced-analytics-and-ai-modeling)
 
 | # | Model Type | Purpose |
