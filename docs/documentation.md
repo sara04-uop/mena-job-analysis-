@@ -1,4 +1,4 @@
-# Jordanian Universities vs. Job Market Skills Gap Analysis — MENA Region
+# Jordanian Universities vs. Job Market Skills Gap Analysis - MENA Region
 
 **Authors**
 - Sara Alzwiri, 202210884
@@ -8,7 +8,7 @@
 
 **Course:** 307498 – Graduation Project
 **Semester:** Seconde Semester, 2025/2026
-**Date:** Submission Date
+**Date:** 1-6-2026
 
 ---
 
@@ -54,7 +54,7 @@ Finally, we acknowledge Bayt.com for maintaining an open and comprehensive job l
 
 ### What is this project about?
 
-This project is a Business Intelligence study that measures the **skills gap** between what Jordanian universities teach and what MENA employers demand. We collected 2,000 real job postings across eight professional sectors and compared the skills they require against the skills taught across 506 courses at three Jordanian universities. The output is a data-driven skills gap report delivered through Python-generated analytical charts and an interactive Power BI dashboard, enabling universities and students to see — at a major level — exactly which skills are missing and how critical each gap is.
+This project is a Business Intelligence study that measures the **skills gap** between what Jordanian universities teach and what MENA employers demand. We collected 2,000 real job postings across eight professional sectors and compared the skills they require against the skills taught across 506 courses at three Jordanian universities. The output is a data-driven skills gap report delivered through Python-generated analytical charts and an interactive Power BI dashboard, enabling universities and students to see - at a major level - exactly which skills are missing and how critical each gap is.
 
 ### What industry or business domain does it address?
 
@@ -76,7 +76,7 @@ Rather than relying on subjective observations about graduate readiness, this pr
 
 3. **Critical emerging skills are absent from curricula:** Technologies like AI/ML, Cloud Computing, and Power BI are transforming every sector, yet they appear minimally in current syllabi. We quantify this absence with hard numbers.
 
-4. **No MENA-specific benchmark for Jordanian universities:** Existing studies are global or generic. Our dataset is specific to UAE, Saudi Arabia, Egypt, and Jordan — the most relevant markets for Jordanian graduates.
+4. **No MENA-specific benchmark for Jordanian universities:** Existing studies are global or generic. Our dataset is specific to UAE, Saudi Arabia, Egypt, and Jordan - the most relevant markets for Jordanian graduates.
 
 ---
 
@@ -134,11 +134,11 @@ As a result, the scope was expanded to cover the broader **MENA region**, specif
 
 Following the expansion to the MENA scope, the data collection was redesigned to focus on one primary platform: **Bayt.com** . this platform was selected because it consistently returned usable, structured job listings, while other platforms either blocked automated access or returned insufficient results. The scraping process was conducted using a **custom Python script built with Selenium**, which navigated the platform, performed searches based on the eight target sectors, and collected structured data for each job listing.
 
-By comparing both datasets, we can compute exactly which skills employers need that universities are not covering — and how severe each gap is.
+By comparing both datasets, we can compute exactly which skills employers need that universities are not covering - and how severe each gap is.
 
 ### How did we acquire it?
 
-#### University Curriculum Data — Manual Collection
+#### University Curriculum Data - Manual Collection
 
 The university data was collected from official university sources, mainly PDF files published on the universities’ official websites. The collected documents included study plans, course plans, and course descriptions, depending on what was available for each program.
 
@@ -209,15 +209,15 @@ Strict rules:
 Output columns:
 University, Major, Course Code, Course Name, Cleaned Skills
 
-#### Job Market Data — Web Scraping
+#### Job Market Data - Web Scraping
 
 We built a custom Python scraper using **Selenium WebDriver** to collect job listings from [Bayt.com](https://www.bayt.com), the MENA region's largest job portal. The scraper operated in three phases:
 
-**Phase 1 — Collect Listings:** The scraper searched Bayt.com for 78 job-title keywords (e.g., `"data scientist"`, `"accountant"`, `"cybersecurity analyst"`) across 4 countries and up to 10 result pages each, collecting the job title, company, location, Sector, date posted, and URL of every listing card.
+**Phase 1 - Collect Listings:** The scraper searched Bayt.com for 78 job-title keywords (e.g., `"data scientist"`, `"accountant"`, `"cybersecurity analyst"`) across 4 countries and up to 10 result pages each, collecting the job title, company, location, Sector, date posted, and URL of every listing card.
 
-**Phase 2 — Scrape Full Descriptions:** Each job URL was opened individually and the full job description text was extracted — this text contains the actual skill requirements employers list.
+**Phase 2 - Scrape Full Descriptions:** Each job URL was opened individually and the full job description text was extracted - this text contains the actual skill requirements employers list.
 
-**Phase 3 — Export to Excel:** All records were saved to a formatted Excel file. A checkpoint save occurred every 100 records to protect against interruptions.
+**Phase 3 - Export to Excel:** All records were saved to a formatted Excel file. A checkpoint save occurred every 100 records to protect against interruptions.
 
 To avoid detection, the scraper used random delays between requests (1.5–3.0 seconds), a real-browser User-Agent string, and suppressed Selenium's automation flags.
 
@@ -227,16 +227,16 @@ The collected fields for each job record included: job title, company name, loca
 
 To address this, an **AI-based extraction pipeline** was applied to the job description text after scraping was complete. The pipeline used Claude, a **large language model** developed by Anthropic, to read each job description and identify the skills mentioned or implied in it. The extraction followed a structured process: the model first identified all relevant skills from the text, and compiled a clean, comma-separated list of skills for each job record stored in the Skills column of the dataset.
 
-This approach resulted in 302 unique skills being identified across the full dataset, with an average of approximately 7.7 skills per job posting. The most frequently required skills across all sectors included communication, problem solving, data analysis, collaboration, and Microsoft Excel, while sector-specific technical skills varied significantly across programs.
+This approach resulted in 308 unique skills being identified across the full dataset, with an average of approximately 7.7 skills per job posting. The most frequently required skills across all sectors included communication, problem solving, data analysis, collaboration, and Microsoft Excel, while sector-specific technical skills varied significantly across programs.
 
 ### Links to raw data sources
 
 | Source | URL |
 |---|---|
-| Bayt.com — UAE | https://www.bayt.com/en/united-arab-emirates/jobs/ |
-| Bayt.com — Saudi Arabia | https://www.bayt.com/en/saudi-arabia/jobs/ |
-| Bayt.com — Egypt | https://www.bayt.com/en/egypt/jobs/ |
-| Bayt.com — Jordan | https://www.bayt.com/en/jordan/jobs/ |
+| Bayt.com - UAE | https://www.bayt.com/en/united-arab-emirates/jobs/ |
+| Bayt.com - Saudi Arabia | https://www.bayt.com/en/saudi-arabia/jobs/ |
+| Bayt.com - Egypt | https://www.bayt.com/en/egypt/jobs/ |
+| Bayt.com - Jordan | https://www.bayt.com/en/jordan/jobs/ |
 | University of Petra | https://www.uop.edu.jo |
 | PSUT | https://www.psut.edu.jo |
 | Al-Zaytoonah University | https://www.zuj.edu.jo |
@@ -265,7 +265,7 @@ This approach resulted in 302 unique skills being identified across the full dat
 | `Major` | Text | Academic major (e.g., "Accounting", "Data Science & AI") | Links curriculum to the corresponding job sector |
 | `Course Code` | Text | Official course code (e.g., `303101`) | Unique course identifier |
 | `Course Name` | Text | Official course title | Human-readable course identifier |
-| `Skill` | Text | A specific competency taught in this course — one row per skill | **Primary analysis variable** — compared against job market demand |
+| `Skill` | Text | A specific competency taught in this course - one row per skill | **Primary analysis variable** - compared against job market demand |
 
 
 #### Job Dataset Fields 
@@ -277,9 +277,9 @@ This approach resulted in 302 unique skills being identified across the full dat
 | `Location` | Text | Country of the job (UAE / KSA / Egypt / Jordan) | Enables country-level demand comparison |
 | `Sector` | Categorical | Academic sector (e.g., "Accounting", "Data Science & AI") | Primary grouping variable for gap analysis |
 | `Source` | Text | Platform scraped ("Bayt") | Data provenance tracking |
-| `Experience Level` | Categorical | Junior / Mid-level / Senior / Managerial — inferred from title | Enables analysis by seniority level |
+| `Experience Level` | Categorical | Junior / Mid-level / Senior / Managerial - inferred from title | Enables analysis by seniority level |
 | `Date Posted` | Date (YYYY-MM-DD) | Normalized posting date | verify recency of job postings and ensure the dataset reflects a current snapshot of the job market |
-| `Skills` | Comma-separated list | Required skills extracted from the job description | **Primary analysis variable** — compared against university curriculum |
+| `Skills` | Comma-separated list | Required skills extracted from the job description | **Primary analysis variable** - compared against university curriculum |
 | `URL` | URL | Direct link to the original Bayt.com listing | Data traceability and verification |
 | `Job Description` | Long text | Full raw job description text | Source material for skills extraction |
 
@@ -339,28 +339,28 @@ This approach resulted in 302 unique skills being identified across the full dat
 
 #### Patterns Discovered
 
-The most striking pattern is a **systematic naming gap** between curricula and market: university curricula use long academic descriptors (e.g., "Financial Statement Preparation (IAS)", "Cost-Volume-Profit Analysis") while job postings use short industry labels (e.g., "Financial Reporting", "Audit Support"). The underlying competency may overlap, but the terminology mismatch causes zero direct matches — understating actual alignment. This pattern holds across all eight sectors.
+The most striking pattern is a **systematic naming gap** between curricula and market: university curricula use long academic descriptors (e.g., "Financial Statement Preparation (IAS)", "Cost-Volume-Profit Analysis") while job postings use short industry labels (e.g., "Financial Reporting", "Audit Support"). The underlying competency may overlap, but the terminology mismatch causes zero direct matches - understating actual alignment. This pattern holds across all eight sectors.
 
-A second pattern is **tool-specific demand** with zero curriculum presence: employers consistently require named tools that appear nowhere in any university's skill list. Microsoft Excel appears in 270 job postings, Microsoft Office in 174, ERP Systems in 162, SAP in 108 — none of these appear directly in any curriculum. Meanwhile, universities teach the conceptual equivalent (spreadsheet analysis, enterprise systems) without naming the tool.
+A second pattern is **tool-specific demand** with zero curriculum presence: employers consistently require named tools that appear nowhere in any university's skill list. Microsoft Excel appears in 270 job postings, Microsoft Office in 174, ERP Systems in 162, SAP in 108 - none of these appear directly in any curriculum. Meanwhile, universities teach the conceptual equivalent (spreadsheet analysis, enterprise systems) without naming the tool.
 
 A third pattern is **consistent skill co-occurrence**: market skills cluster tightly. The top co-occurring pair, Collaboration + Communication, appears together in 490 job postings. Budgeting + Forecasting co-occur in 132 postings, and Audit Support + Budgeting in 116. This means a graduate missing one skill in a cluster is effectively missing the entire profile employers expect simultaneously.
 
 #### Correlations and Relationships Found
 
-- **PSUT holds the highest tech curriculum volume:** Computer Science (34 unique skills), Cybersecurity (19), Data Science & AI (24) — the densest technical programs among all three universities
+- **PSUT holds the highest tech curriculum volume:** Computer Science (34 unique skills), Cybersecurity (19), Data Science & AI (24) - the densest technical programs among all three universities
 - **University of Petra has the broadest overall coverage:** 710 skill entries across 209 courses, leading in Business Intelligence (128 skills), Marketing (158), and Data Science & AI (100)
-- **Accounting has the highest skill density per posting** at 11.3 skills/job — employers in this sector expect the widest simultaneous competency profile
+- **Accounting has the highest skill density per posting** at 11.3 skills/job - employers in this sector expect the widest simultaneous competency profile
 - **UAE dominance:** 847 of 2,000 postings (42%) originate from the UAE, making it the primary reference market for Jordanian graduates
 
 #### Insights Relevant to Project Objectives
 
-🔴 **Critical:** Cloud Computing (AWS + Azure = 241 combined postings) and ERP Systems (SAP + Oracle + Microsoft Dynamics + ERP = 427 combined postings) are among the highest-demanded skill clusters — yet none appear directly in any university curriculum by their market name.
+🔴 **Critical:** Cloud Computing (AWS + Azure = 241 combined postings) and ERP Systems (SAP + Oracle + Microsoft Dynamics + ERP = 427 combined postings) are among the highest-demanded skill clusters - yet none appear directly in any university curriculum by their market name.
 
 🟠 **High:** Agile/Scrum (164 postings) and DevOps tools including CI/CD, Docker, and Kubernetes (268 combined postings) appear consistently across tech sectors but have no direct equivalent course in any of the three universities.
 
-🟡 **Moderate:** Python (150 postings) and SQL (121 postings) are the only two high-demand technical tools that appear directly in university curricula — making them the strongest points of verified alignment between academia and market.
+🟡 **Moderate:** Python (150 postings) and SQL (121 postings) are the only two high-demand technical tools that appear directly in university curricula - making them the strongest points of verified alignment between academia and market.
 
-📌 **Structural finding:** No university achieves a strong skill match in any major across all three institutions. Curriculum gaps are systematic across all majors — not confined to any single program.
+📌 **Structural finding:** No university achieves a strong skill match in any major across all three institutions. Curriculum gaps are systematic across all majors - not confined to any single program.
 ---
 
 ## Data Primary Cleaning and Transformation
@@ -371,7 +371,7 @@ The university curriculum dataset was built from official course-description and
 
 **Source documents** included study plans, course plans, course descriptions, and program description files. Each document was treated according to its actual structure, and no document was described as a full study plan unless clearly supported by the source.
 
-**Skill extraction** was performed using an LLM-assisted process. The LLM was used as a parsing and organization assistant — not as a source of new information. Its role was to read the provided course descriptions and extract only skills, topics, or competencies that were explicitly stated or directly supported by the course title. The extraction followed strict rules: no invented skills, no unsupported tools, and no additions beyond what the course content described.
+**Skill extraction** was performed using an LLM-assisted process. The LLM was used as a parsing and organization assistant - not as a source of new information. Its role was to read the provided course descriptions and extract only skills, topics, or competencies that were explicitly stated or directly supported by the course title. The extraction followed strict rules: no invented skills, no unsupported tools, and no additions beyond what the course content described.
 
 The extracted data was structured into a table with five fields: University, Major, Course Code, Course Name, and Skill. Each row represents one extracted skill linked to one course, meaning a single course may appear in multiple rows if more than one skill was extracted from its description.
 
@@ -380,8 +380,8 @@ The extracted data was structured into a table with five fields: University, Maj
 1. Removed unsupported or overly generic extracted phrases
 2. Standardized major names into consistent analytical categories
 3. Kept course codes as text to preserve leading zeros
-4. Removed exact duplicate rows using the full five-field context (University + Major + Course Code + Course Name + Skill) — not on the Skill column alone, since the same skill can validly appear across different courses and universities
-5. Normalized skill names by removing extra spaces, hidden spaces, and standardizing text case — reducing raw distinct skills from 370 to **369 normalized distinct skills**
+4. Removed exact duplicate rows using the full five-field context (University + Major + Course Code + Course Name + Skill) - not on the Skill column alone, since the same skill can validly appear across different courses and universities
+5. Normalized skill names by removing extra spaces, hidden spaces, and standardizing text case - reducing raw distinct skills from 370 to **369 normalized distinct skills**
 6. Checked for missing values across all key fields
 
 **Final cleaned university dataset counts:**
@@ -403,21 +403,27 @@ The extracted data was structured into a table with five fields: University, Maj
 
 The job dataset was collected from Bayt.com and stored in Excel, where each row represented one job posting. The `Skills` column contained multiple skills in a single cell, separated by commas. Since the project analyzes skills individually, the dataset required transformation in two stages: first through Python during data collection, then through Power Query in Power BI.
 
-**Stage 1 — Python Cleaning (during data collection):**
+**Stage 1 - Python Cleaning (during data collection):**
 
-**Step 1 — Standardizing Country Names:**
+**Step 1 - Standardizing Country Names:**
 
-Country names were standardized for consistency. For example, `Saudi Arabia` and `KSA` were unified to a single label to ensure consistent grouping across the dataset.
+Country names were standardized for consistency. For example, `Saudi Arabia` and `KSA` were unified to a single label to ensure consistent grouping across thr dataset.
 
-**Step 2 — Handling Missing Values:**
+BAYT_COUNTRIES = [
+    ("jordan",               "Jordan"),
+    ("united-arab-emirates", "UAE"),
+    ("saudi-arabia",         "Saudi Arabia"),
+    ("egypt",                "Egypt"),
+]
+**Step 2 - Handling Missing Values:**
 
 | Field | Missing Values | Action |
 |---|---|---|
 | Skill | 0 | No action required |
 | Job Title | 0 | No action required |
-| Company | 17 | Kept as N/A — company name is not essential for skill analysis |
+| Company | 17 | Kept as N/A - company name is not essential for skill analysis |
 
-**Step 3 — Data Type Conversions:**
+**Step 3 - Data Type Conversions:**
 
 `Date Posted` was cleaned from raw Bayt.com text to ISO format `YYYY-MM-DD`:
 
@@ -428,6 +434,16 @@ Country names were standardized for consistency. For example, `Saudi Arabia` and
 | `"April 14 2026"` | `2026-04-14` |
 | Unparseable | Today's date (fallback) |
 
+ def clean_date(text):
+    m = re.search(r"(\d+)\s*day", t)
+    if m: return str((datetime.today() - timedelta(days=int(m.group(1)))).date())
+    m = re.search(r"(\d+)\s*week", t)
+    if m: return str((datetime.today() - timedelta(weeks=int(m.group(1)))).date())
+    for fmt in ("%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%d %b %Y", "%Y/%m/%d"):
+        try: return str(datetime.strptime(text.strip(), fmt).date())
+        except: pass
+    return str(datetime.today().date())
+
 `Experience Level` was converted from free-text job titles to a categorical field:
 
 | Title Keywords | Assigned Level |
@@ -437,7 +453,17 @@ Country names were standardized for consistency. For example, `Saudi Arabia` and
 | manager, director, vp, chief, ceo | Managerial |
 | *(anything else)* | Mid-level |
 
-**Step 4 — Deduplication:**
+def infer_exp(title):
+    t = title.lower()
+    if any(k in t for k in ["senior", "sr.", "lead", "principal", "head of", "staff"]):
+        return "Senior"
+    if any(k in t for k in ["junior", "jr.", "entry", "graduate", "intern", "fresh"]):
+        return "Junior"
+    if any(k in t for k in ["manager", "director", "vp ", "chief", "executive", "ceo", "cto"]):
+        return "Managerial"
+    return "Mid-level"
+
+**Step 4 - Deduplication:**
 
 After scraping, the same job posting could appear under multiple search keywords. URL-based deduplication ensured each posting was counted exactly once:
 
@@ -447,18 +473,18 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-**Stage 2 — Power Query Transformation (in Power BI):**
+**Stage 2 - Power Query Transformation (in Power BI):**
 
 1. Removed the dataset title row
 2. Promoted the correct header row
 3. Assigned correct data types to each column
 4. Selected only the required columns and removed long text fields such as `Job Description`
 5. Trimmed and cleaned text columns to remove extra spaces and hidden characters
-6. Split the `Skills` column by comma into rows — converting one row per job posting into one row per job-skill record
+6. Split the `Skills` column by comma into rows - converting one row per job posting into one row per job-skill record
 7. Renamed `Skills` to `JobSkill` to reflect that each row now contains one skill
 8. Trimmed and cleaned `JobSkill` again after splitting to remove leading spaces
 9. Removed empty or null skill rows
-10. Created a `JobSkillKey` column as a normalized duplicate of `JobSkill` — applying lowercase, trim, and clean — to improve matching accuracy across Power BI calculations
+10. Created a `JobSkillKey` column as a normalized duplicate of `JobSkill` - applying lowercase, trim, and clean - to improve matching accuracy across Power BI calculations
 
 **Final cleaned job dataset structure:**
 
@@ -482,6 +508,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Chart 1: Skill Entries by Major**
 ![Skill Entries by Major](../images/chart%20uni%201.jpeg)
+
 *This clustered column chart compares the number of extracted curriculum skill records across majors and universities. It helps identify which universities have stronger documented skill coverage in specific majors.*
 
 **Insight:**
@@ -489,16 +516,18 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Chart 2: Courses by Major**
 ![Courses by Major](../images/chart%20uni%202.jpeg)
+
 *This chart shows the number of distinct courses offered by each university for every major. It helps explain whether high skill record counts are related to a larger number of courses.*
 
 **Insight:**
-*Al-Zaytoonah leads in Business Administration course count (48 courses), while UOP leads in Business Intelligence (36 courses) and Marketing (32 courses). PSUT has no Business Intelligence major in this dataset. Higher skill records do not always reflect more courses — they may also reflect more detailed course descriptions.*
+*Al-Zaytoonah leads in Business Administration course count (48 courses), while UOP leads in Business Intelligence (36 courses) and Marketing (32 courses). PSUT has no Business Intelligence major in this dataset. Higher skill records do not always reflect more courses - they may also reflect more detailed course descriptions.*
 
 
 **job dataset visualization**
 
 **Chart 3: Experience Level Distribution by Country**
 ![Chart 3: Experience Level Distribution by Country](../images/3.jpeg)
+
 *This chart visualizes how job opportunities are distributed across experience levels in each country.*
 
 **Insight**
@@ -506,6 +535,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Chart 4: Jobs Distribution by Country**
 ![Chart 4: Jobs Distribution by Country](../images/4.jpeg)
+
 *This pie chart shows the percentage contribution of each country to the total job postings.*
 
 **Insight**
@@ -513,6 +543,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Chart 5: Avg Skills / Job by Sector**
 ![Chart 5: Avg Skills / Job by Sector](../images/5.jpeg)
+
 *This chart compares the average number of required skills per job across sectors.*
 
 **Insight**
@@ -527,7 +558,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-## Page 1 — 📊 Executive Overview
+## Page 1 - 📊 Executive Overview
 ![Executive Overview](../images/dashboard1.jpeg)
 
 *Provides a high-level summary of the skills landscape, combining KPI cards, geographic distribution, and structural breakdowns to answer: "What is the overall state of the skills gap?"*
@@ -552,7 +583,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A dropdown slicer filtering all visuals by university name (from `UniversitySkills.University`).
 
-**Insight Derived:** Enables curriculum owners and policy makers to zoom in on a single institution's performance. This is critical for benchmarking — it allows a university to see only its own skill coverage and gap metrics without being conflated with peer institutions.
+**Insight Derived:** Enables curriculum owners and policy makers to zoom in on a single institution's performance. This is critical for benchmarking - it allows a university to see only its own skill coverage and gap metrics without being conflated with peer institutions.
 
 ---
 
@@ -574,7 +605,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ### KPI Cards
 
-*These six cards provide the headline numbers — the "at a glance" metrics that set context for everything else on the page.*
+*These six cards provide the headline numbers - the "at a glance" metrics that set context for everything else on the page.*
 
 ---
 
@@ -590,7 +621,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A KPI card showing the total number of distinct skills identified across all job postings (measure: `Dim_Skills.Market Skills`).
 
-**Insight Derived:** Communicates the breadth of skills that employers are actively requesting. This is the denominator for the gap calculation — if universities only cover a fraction of these, the urgency of curriculum reform is immediately visible.
+**Insight Derived:** Communicates the breadth of skills that employers are actively requesting. This is the denominator for the gap calculation - if universities only cover a fraction of these, the urgency of curriculum reform is immediately visible.
 
 ---
 
@@ -606,7 +637,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A KPI card showing the number of university skills that were successfully matched to market-demanded skills through a skills dictionary (measure: `Dim_Skills.Dictionary Matched Skills`).
 
-**Insight Derived:** This is the intersection metric — skills that universities teach AND employers want. The higher this number relative to Market Skills, the better the curriculum alignment. This directly answers: "How much of what we teach is actually relevant to employers?"
+**Insight Derived:** This is the intersection metric - skills that universities teach AND employers want. The higher this number relative to Market Skills, the better the curriculum alignment. This directly answers: "How much of what we teach is actually relevant to employers?"
 
 ---
 
@@ -622,7 +653,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A KPI card showing the raw count of market skills that have no match in any university curriculum (measure: `Dim_Skills.Dictionary Missing Market Skills`).
 
-**Insight Derived:** Provides the absolute count behind the gap percentage. While the percentage contextualizes the problem, this number communicates its concrete scale — e.g., "Students are never exposed to X skills that employers demand." This supports prioritization of which skills to introduce first.
+**Insight Derived:** Provides the absolute count behind the gap percentage. While the percentage contextualizes the problem, this number communicates its concrete scale - e.g., "Students are never exposed to X skills that employers demand." This supports prioritization of which skills to introduce first.
 
 ---
 
@@ -634,7 +665,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A clustered column chart plotting each university on the X-axis against the count of skill records in its curriculum on the Y-axis (fields: `UniversitySkills.University` × `Dim_Skills.University Skill Records`).
 
-**Insight Derived:** Immediately reveals which universities have the most skill-rich curricula and which are comparatively sparse. A university with few skill records is not necessarily failing — but when overlaid with gap data, it can indicate whether breadth correlates with better market alignment. This supports competitive benchmarking and peer learning.
+**Insight Derived:** Immediately reveals which universities have the most skill-rich curricula and which are comparatively sparse. A university with few skill records is not necessarily failing - but when overlaid with gap data, it can indicate whether breadth correlates with better market alignment. This supports competitive benchmarking and peer learning.
 
 ---
 
@@ -650,11 +681,11 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A geographic map visual plotting job posting volume across MENA locations, with bubble size or color intensity representing `Dim_Skills.Total Jobs` per location (fields: `JobSkills.Location` × `Dim_Skills.Total Jobs`).
 
-**Insight Derived:** Reveals the geographic distribution of labor demand across the MENA region. This tells universities where their graduates are most likely to be employed and highlights high-opportunity markets. It also supports decisions about which country-specific skill requirements to prioritize — a university in Jordan training graduates for UAE tech jobs needs to align with UAE employer expectations specifically.
+**Insight Derived:** Reveals the geographic distribution of labor demand across the MENA region. This tells universities where their graduates are most likely to be employed and highlights high-opportunity markets. It also supports decisions about which country-specific skill requirements to prioritize - a university in Jordan training graduates for UAE tech jobs needs to align with UAE employer expectations specifically.
 
 ---
 
-## Page 2 — 📊 Skills Gap Analysis
+## Page 2 - 📊 Skills Gap Analysis
 ![Skills Gap Analysis](../images/dashboard2.jpeg)
 
 *Deep-dives into the specific skills driving the gap, answering: "Which exact skills are missing, and which universities/majors are falling furthest behind?"*
@@ -665,7 +696,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A horizontal clustered bar chart ranking individual job skills by their demand score among postings where no university curriculum match was found (fields: `JobSkills.JobSkill` × `Dim_Skills.Dictionary Missing Skill Demand`).
 
-**Insight Derived:** This is the most actionable chart in the entire dashboard. It produces a prioritized list of skills that universities must add to their curricula. The highest bars represent skills with the greatest employer demand and zero academic coverage — the "quick wins" for curriculum designers. Ministry of Education and accreditation reviewers can use this chart to mandate minimum coverage requirements.
+**Insight Derived:** This is the most actionable chart in the entire dashboard. It produces a prioritized list of skills that universities must add to their curricula. The highest bars represent skills with the greatest employer demand and zero academic coverage - the "quick wins" for curriculum designers. Ministry of Education and accreditation reviewers can use this chart to mandate minimum coverage requirements.
 
 ---
 
@@ -673,11 +704,11 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A grouped/clustered bar chart showing skill record counts broken down by academic major on the X-axis, with separate bars per university (fields: `UniversitySkills.Major` × `Dim_Skills.University Skill Records`, series by `UniversitySkills.University`).
 
-**Insight Derived:** Enables a two-dimensional comparison — across both programs (majors) and institutions. It answers: "Which university has the most comprehensive curriculum for a given major?" and "Which major has the biggest skill coverage disparity between institutions?" This supports cross-institutional collaboration (strong departments can share syllabi) and helps students choose universities based on skill depth in their intended field.
+**Insight Derived:** Enables a two-dimensional comparison - across both programs (majors) and institutions. It answers: "Which university has the most comprehensive curriculum for a given major?" and "Which major has the biggest skill coverage disparity between institutions?" This supports cross-institutional collaboration (strong departments can share syllabi) and helps students choose universities based on skill depth in their intended field.
 
 ---
 
-## Page 3 — 💼 Job Evidence
+## Page 3 - 💼 Job Evidence
 ![Job Evidence](../images/dashboard3.jpeg)
 
 
@@ -699,7 +730,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** Filters the job postings table by geographic location.
 
-**Insight Derived:** Allows verification of market skill data for a specific market — e.g., confirming that Python is genuinely in demand in Riyadh versus Amman.
+**Insight Derived:** Allows verification of market skill data for a specific market - e.g., confirming that Python is genuinely in demand in Riyadh versus Amman.
 
 ---
 
@@ -715,7 +746,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** Filters the job postings table by a specific skill keyword.
 
-**Insight Derived:** Lets users validate how many postings actually mention a given skill, and from which companies and locations — converting aggregate dashboard numbers into granular, citable evidence.
+**Insight Derived:** Lets users validate how many postings actually mention a given skill, and from which companies and locations - converting aggregate dashboard numbers into granular, citable evidence.
 
 ---
 
@@ -727,7 +758,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 ---
 
-## Page 4 — 🎓 Course Evidence
+## Page 4 - 🎓 Course Evidence
 ![Course Evidence](../images/dashboard4.jpeg)
 
 
@@ -739,7 +770,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** A detailed data table showing individual skill records extracted from university courses, with columns for Skill, University, Major,Course Code,Course Name(fields: `UniversitySkills.Skill`, `UniversitySkills.University`, `UniversitySkills.Major`, `UniversitySkills.Course Code` , `UniversitySkills.Course Name`).
 
-**Insight Derived:** Makes the curriculum data fully traceable and auditable — every skill attributed to a university can be traced back to the exact course that teaches it. This is essential for curriculum gap remediation: when a missing skill is identified, this table lets academic coordinators identify which department owns the gap and which course(s) could be modified to address it. It also surfaces skill redundancy (the same skill taught in many courses) versus coverage gaps.
+**Insight Derived:** Makes the curriculum data fully traceable and auditable - every skill attributed to a university can be traced back to the exact course that teaches it. This is essential for curriculum gap remediation: when a missing skill is identified, this table lets academic coordinators identify which department owns the gap and which course(s) could be modified to address it. It also surfaces skill redundancy (the same skill taught in many courses) versus coverage gaps.
 
 ---
 
@@ -757,7 +788,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** Filters the course skills table by institution.
 
-**Insight Derived:** Allows a single university to review only its own course-to-skill mappings without noise from peer institutions — essential for internal curriculum review sessions.
+**Insight Derived:** Allows a single university to review only its own course-to-skill mappings without noise from peer institutions - essential for internal curriculum review sessions.
 
 ---
 
@@ -765,7 +796,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** Filters the course skills table by skill name.
 
-**Insight Derived:** Quickly answers "Which of our courses teach this specific skill?" — allowing curriculum planners to assess whether a high-demand skill is taught at all, taught once, or sufficiently embedded across the program.
+**Insight Derived:** Quickly answers "Which of our courses teach this specific skill?" - allowing curriculum planners to assess whether a high-demand skill is taught at all, taught once, or sufficiently embedded across the program.
 
 ---
 
@@ -773,7 +804,7 @@ df.drop_duplicates(subset=["URL"], inplace=True)
 
 **Description:** Filters the course skills table by specific course code.
 
-**Insight Derived:** Enables a course-level audit — "What skills does this one course contribute?" This is useful for course revision cycles, accreditation documentation, and identifying which courses are the highest-value contributors to market alignment.
+**Insight Derived:** Enables a course-level audit - "What skills does this one course contribute?" This is useful for course revision cycles, accreditation documentation, and identifying which courses are the highest-value contributors to market alignment.
 
 ---
 
@@ -840,13 +871,14 @@ We applied three analytical models and one descriptive visualization to identify
 | Figure | Method Type | Algorithm | Key Output |
 |---|---|---|---|
 | Fig 01 | Descriptive Analysis | Frequency Counting | Top 25 skills ranked by frequency (both domains) |
-| Fig 02 | Unsupervised ML — Clustering | K-Means + PCA | 4 distinct job market skill profiles |
-| Fig 03 | Unsupervised ML — Pattern Discovery | Apriori (Association Rules) | Top 10 skill co-occurrence rules by lift |
+| Fig 02 | Unsupervised ML - Clustering | K-Means + PCA | 4 distinct job market skill profiles |
+| Fig 03 | Unsupervised ML - Pattern Discovery | Apriori (Association Rules) | Top 10 skill co-occurrence rules by lift |
 
 ---
 
-## Fig 01 — Skill Frequency: University vs. Job Market
+## Fig 01 - Skill Frequency: University vs. Job Market
 ![Fig 01](../images/fig01_skill_frequency.png)
+
 ### Type
 Descriptive analysis. Raw frequency counting was used to rank and compare the top 25 skills from each domain side by side.
 
@@ -869,10 +901,11 @@ The two lists are almost entirely non-overlapping:
 
 ---
 
-## Fig 02 — K-Means Job Clustering
+## Fig 02 - K-Means Job Clustering
 ![Fig 02](../images/fig02_kmeans_clusters.png)
+
 ### Type
-Unsupervised Machine Learning — Clustering, with PCA for 2D visualization.
+Unsupervised Machine Learning - Clustering, with PCA for 2D visualization.
 
 ### Tools Used
 
@@ -887,7 +920,7 @@ Unsupervised Machine Learning — Clustering, with PCA for 2D visualization.
 | Parameter | Value | Reason |
 |---|---|---|
 | `n_clusters` | 4 | Chosen to produce interpretable, distinct profiles |
-| `n_init` | 10 | Runs 10 initializations and keeps the best — prevents unstable clustering |
+| `n_init` | 10 | Runs 10 initializations and keeps the best - prevents unstable clustering |
 | `random_state` | 42 | Reproducibility |
 | `max_features` | 200 | Caps TF-IDF vocabulary to the 200 most informative skill terms |
 | `min_df` | 2 | Excludes skills appearing in only one posting (noise reduction) |
@@ -895,7 +928,7 @@ Unsupervised Machine Learning — Clustering, with PCA for 2D visualization.
 | PCA variance captured | ~12.5% | Proportion of total skill variation visible in the 2D plot |
 
 ### Goal
-To discover whether MENA job postings naturally segment into distinct skill profiles — and if so, what those profiles look like. This determines whether a single curriculum can serve all graduates or whether sector-specific gaps must be addressed separately.
+To discover whether MENA job postings naturally segment into distinct skill profiles - and if so, what those profiles look like. This determines whether a single curriculum can serve all graduates or whether sector-specific gaps must be addressed separately.
 
 ### Cluster Results
 
@@ -913,10 +946,11 @@ The MENA job market naturally organizes into four distinct skill profiles, three
 
 ---
 
-## Fig 03 — Skill Co-occurrence: Association Rule Mining
+## Fig 03 - Skill Co-occurrence: Association Rule Mining
 ![Fig 03](../images/fig03_top_association_rules.png)
+
 ### Type
-Unsupervised Machine Learning — Association Rule Learning, adapted from market basket analysis to skill co-occurrence in job postings.
+Unsupervised Machine Learning - Association Rule Learning, adapted from market basket analysis to skill co-occurrence in job postings.
 
 ### Tools Used
 
@@ -943,7 +977,7 @@ Unsupervised Machine Learning — Association Rule Learning, adapted from market
 | Lift | P(A ∩ B) / (P(A) × P(B)) | How much more likely the pair appears together vs. by chance. Lift = 1.0 → independent; Lift > 2.0 → strongly linked |
 
 ### Goal
-To reveal which skills employers treat as a bundle rather than individual requirements — shifting the curriculum recommendation from "add these skills" to "teach these skills together."
+To reveal which skills employers treat as a bundle rather than individual requirements - shifting the curriculum recommendation from "add these skills" to "teach these skills together."
 
 ### Key Finding
 Employers think in skill bundles, not isolated competencies. A student missing one skill from a bundle fails to qualify for the role even if they possess the others. Curriculum gaps are therefore compounding, not additive.
@@ -956,17 +990,17 @@ Employers think in skill bundles, not isolated competencies. A student missing o
 During the planning phase, we evaluated multiple tools across four categories: data collection, data analysis, visualization, and deployment.
 
 **Data Collection:**
-- **Selenium (Python)** vs. **Scrapy** vs. **BeautifulSoup** — all three are Python-based web scraping options. Scrapy is faster for large-scale crawls but requires more setup. BeautifulSoup handles static HTML well but cannot interact with JavaScript-rendered pages. **Selenium** was the only option capable of simulating real browser behavior, which was required to navigate Bayt.com's dynamically loaded job listings.
+- **Selenium (Python)** vs. **Scrapy** vs. **BeautifulSoup** - all three are Python-based web scraping options. Scrapy is faster for large-scale crawls but requires more setup. BeautifulSoup handles static HTML well but cannot interact with JavaScript-rendered pages. **Selenium** was the only option capable of simulating real browser behavior, which was required to navigate Bayt.com's dynamically loaded job listings.
 
 **Data Analysis:**
-- **Python** vs. **R** — both are standard languages for data analysis. R is stronger for statistical modeling and academic research, but Python offers a broader ecosystem for combining web scraping, ML, and visualization in a single pipeline. Since this project required all three in sequence, **Python** was the clear choice.
+- **Python** vs. **R** - both are standard languages for data analysis. R is stronger for statistical modeling and academic research, but Python offers a broader ecosystem for combining web scraping, ML, and visualization in a single pipeline. Since this project required all three in sequence, **Python** was the clear choice.
 
 **Visualization:**
-- **Power BI** vs. **Tableau** vs. **Looker** — all three are enterprise-grade BI platforms. Tableau offers superior design flexibility, and Looker integrates well with cloud databases. However, **Power BI** was selected because it is the most widely adopted tool in the MENA region's business and public sector, it integrates directly with Excel, and it was the most accessible option given the academic licensing available to the team. Looker was excluded due to its cloud-dependency and cost. Tableau was evaluated seriously but deprioritized because Power BI's data modeling features (relationships, DAX measures) were better suited to linking two separate datasets — the university and job market tables.
+- **Power BI** vs. **Tableau** vs. **Looker** - all three are enterprise-grade BI platforms. Tableau offers superior design flexibility, and Looker integrates well with cloud databases. However, **Power BI** was selected because it is the most widely adopted tool in the MENA region's business and public sector, it integrates directly with Excel, and it was the most accessible option given the academic licensing available to the team. Looker was excluded due to its cloud-dependency and cost. Tableau was evaluated seriously but deprioritized because Power BI's data modeling features (relationships, DAX measures) were better suited to linking two separate datasets - the university and job market tables.
 - **Matplotlib** was evaluated for static Python charts and was ultimately retained for the advanced analytics figures (K-Means, Apriori, lift scoring), where custom visual control was needed that Power BI's built-in charts could not easily replicate.
 
 **Deployment / Presentation:**
-- **Streamlit** vs. **Gradio** vs. **Flask** vs. **Power BI Service** — Streamlit and Gradio are both Python-based frameworks for building quick interactive web apps. Flask offers more control but requires front-end development. **Power BI** Service allows direct publishing of Power BI dashboards to the web without additional infrastructure.
+- **Streamlit** vs. **Gradio** vs. **Flask** vs. **Power BI Service** - Streamlit and Gradio are both Python-based frameworks for building quick interactive web apps. Flask offers more control but requires front-end development. **Power BI** Service allows direct publishing of Power BI dashboards to the web without additional infrastructure.
 
 ---
 
@@ -981,7 +1015,7 @@ During the planning phase, we evaluated multiple tools across four categories: d
 | Interactive Dashboard | Microsoft Power BI Desktop |
 | Dashboard Publishing | Power BI Service (web publishing) |
 | Document Processing | iLovePDF |
-| AI-Assisted Extraction | Claude (Anthropic) — LLM extraction pipeline |
+| AI-Assisted Extraction | Claude (Anthropic) - LLM extraction pipeline |
 | Data Storage | Microsoft Excel (.xlsx) |
 
 ---
@@ -990,11 +1024,11 @@ During the planning phase, we evaluated multiple tools across four categories: d
 
 **Python + Selenium** was selected because Bayt.com renders job listings dynamically using JavaScript, and only a real-browser automation tool could reliably navigate search results, open individual job pages, and extract full descriptions. Random delays and User-Agent spoofing were implemented within the Selenium script to ensure stable, uninterrupted data collection across 2,000 postings.
 
-**Python (pandas, sklearn, mlxtend)** was selected because the entire analysis pipeline — from raw scraping output to skill normalization, frequency counting, K-Means clustering, Apriori mining, and lift scoring — could be written and reproduced in a single environment. This reduced data transfer errors between tools and kept the analysis traceable end-to-end.
+**Python (pandas, sklearn, mlxtend)** was selected because the entire analysis pipeline - from raw scraping output to skill normalization, frequency counting, K-Means clustering, Apriori mining, and lift scoring - could be written and reproduced in a single environment. This reduced data transfer errors between tools and kept the analysis traceable end-to-end.
 
 **Power BI** was selected for the interactive dashboard because it supports multi-table data models, custom DAX measures for computing gap percentages, and slicers that allow non-technical users (university administrators, career advisors) to explore the data without writing code. Its native Excel integration made loading the cleaned `.xlsx` datasets straightforward.
 
-**Claude (Anthropic LLM)** was selected as an extraction assistant for both the university curriculum dataset and the job description skills pipeline. Its role was strictly parsing and normalization — reading source text and extracting only explicitly stated or clearly implied skills — not generating new content. This choice was made because rule-based extraction (regex) could not handle the linguistic variation in 2,000 free-text job descriptions at acceptable accuracy.
+**Claude (Anthropic LLM)** was selected as an extraction assistant for both the university curriculum dataset and the job description skills pipeline. Its role was strictly parsing and normalization - reading source text and extracting only explicitly stated or clearly implied skills - not generating new content. This choice was made because rule-based extraction (regex) could not handle the linguistic variation in 2,000 free-text job descriptions at acceptable accuracy.
 
 **Microsoft Excel** was selected as the storage format because it is universally readable, directly importable into Power BI, and accessible to all project stakeholders without requiring database infrastructure.
 
@@ -1004,11 +1038,11 @@ During the planning phase, we evaluated multiple tools across four categories: d
 
 Each tool plays a distinct, non-overlapping role in the pipeline:
 
-1. **Selenium** fills the data acquisition layer — no other tool in the evaluation could reliably scrape Bayt.com at scale.
+1. **Selenium** fills the data acquisition layer - no other tool in the evaluation could reliably scrape Bayt.com at scale.
 2. **Python / pandas** handles all cleaning, normalization, deduplication, and the synonym dictionary matching that links job market skills to curriculum equivalents.
 3. **scikit-learn and mlxtend** power the three advanced models (K-Means clustering, Apriori association rules, lift-score ranking) that move the analysis beyond simple frequency counts into pattern discovery.
 4. **matplotlib** generates publication-ready static figures (Fig 01–04) that are embedded directly in this documentation and the project report.
-5. **Power BI** delivers the interactive, filter-driven dashboard that is the project's primary business deliverable — allowing stakeholders to drill down by university, major, country, and sector without touching the underlying data.
+5. **Power BI** delivers the interactive, filter-driven dashboard that is the project's primary business deliverable - allowing stakeholders to drill down by university, major, country, and sector without touching the underlying data.
 6. **Claude** compresses what would have been weeks of manual extraction into a consistent, auditable, prompt-driven pipeline that maintains source traceability at every step.
 
 ---
@@ -1017,21 +1051,21 @@ Each tool plays a distinct, non-overlapping role in the pipeline:
 
 ### How will a business user consume this project?
 
-The primary deliverable is an **interactive Power BI dashboard** published via Power BI Service. This format was chosen because the target users — university curriculum committees, academic advisors, department heads, and career services staff — are not technical users and require a point-and-click interface rather than code or raw data files.
+The primary deliverable is an **interactive Power BI dashboard** published via Power BI Service. This format was chosen because the target users - university curriculum committees, academic advisors, department heads, and career services staff - are not technical users and require a point-and-click interface rather than code or raw data files.
 
 The dashboard supports the following consumption patterns:
 
 - **Curriculum committees** use the Skills Gap Analysis page to identify which skills are most underrepresented in their specific university and major, filtered interactively.
 - **Students and academic advisors** use the Executive Overview KPI cards and sector treemap to understand which sectors have the highest demand and where curriculum-to-market alignment is strongest.
 - **Employers and recruitment teams** use the Job Evidence page to verify which skills drove the analysis and filter by country, sector, and experience level.
-- **Researchers and accreditation bodies** use the Course Evidence page to trace every curriculum skill back to its originating university, major, course code, and course name — providing full academic traceability.
+- **Researchers and accreditation bodies** use the Course Evidence page to trace every curriculum skill back to its originating university, major, course code, and course name - providing full academic traceability.
 
 
 ---
 
 ### Implementation Steps in Chronological Order
 
-**Phase 1 — Problem Scoping and Data Planning**
+**Phase 1 - Problem Scoping and Data Planning**
 
 1. Define eight target academic majors spanning IT and Business.
 
@@ -1042,7 +1076,7 @@ The dashboard supports the following consumption patterns:
 4. Select Bayt.com as the single scraping source after evaluating Akhtaboot and Kalamantina and Linkedin.
 
 
-**Phase 2 — Data Collection**
+**Phase 2 - Data Collection**
 
 5. Build and test the Selenium scraper across all four countries and eight sector keyword sets.
 
@@ -1057,7 +1091,7 @@ The dashboard supports the following consumption patterns:
 10. Organize PDFs by university; convert to text using iLovePDF where needed.
 
 
-**Phase 3 — Data Cleaning and Transformation**
+**Phase 3 - Data Cleaning and Transformation**
 
 11. Apply the LLM-assisted extraction prompt to all university course descriptions to produce structured skill records (University, Major, Course Code, Course Name, Skill).
 
@@ -1072,7 +1106,7 @@ The dashboard supports the following consumption patterns:
 16. Validate missing values across all fields in both datasets.
 
 
-**Phase 4 — Analysis and Modeling**.
+**Phase 4 - Analysis and Modeling**.
 
 17. Run Fig 01 (frequency analysis) to establish the baseline skill comparison.
 
@@ -1083,7 +1117,7 @@ The dashboard supports the following consumption patterns:
 20. Generate all four figures as static matplotlib exports.
 
 
-**Phase 5 — Dashboard Development**
+**Phase 5 - Dashboard Development**
 
 21. Load the cleaned university and job datasets into Power BI Desktop.
 
@@ -1098,7 +1132,7 @@ The dashboard supports the following consumption patterns:
 26. Apply consistent color theme and layout across all pages.
 
 
-**Phase 6 — Publishing and Delivery**
+**Phase 6 - Publishing and Delivery**
 
 27. Publish the Power BI report to Power BI Service.
 
@@ -1125,9 +1159,9 @@ The dashboard supports the following consumption patterns:
 
 ### Summary of Findings
 
-This project set out to answer one central question: **how well do the curricula of three Jordanian private universities align with what MENA employers actually demand?** The answer, across all eight majors and all three universities, is: **not well enough**. Despite the three universities collectively offering 1,145 curriculum skill records across 506 courses, only 68 skills were matched against the 308 distinct skills identified across 2,000 real MENA job postings using dictionary-based mapping — producing a Dictionary Gap of 78%, with 240 market skills remaining unmatched. This is not primarily a volume problem. Universities are not teaching too few things; they are teaching the right concepts under the wrong labels and without the industry-specific tools that employers treat as non-negotiable entry requirements.
+This project set out to answer one central question: **how well do the curricula of three Jordanian private universities align with what MENA employers actually demand?** The answer, across all eight majors and all three universities, is: **not well enough**. Despite the three universities collectively offering 1,145 curriculum skill records across 506 courses, only 68 skills were matched against the 308 distinct skills identified across 2,000 real MENA job postings using dictionary-based mapping - producing a Dictionary Gap of 78%, with 240 market skills remaining unmatched. This is not primarily a volume problem. Universities are not teaching too few things; they are teaching the right concepts under the wrong labels and without the industry-specific tools that employers treat as non-negotiable entry requirements.
 
-The most critical gaps are concentrated in three areas that cut across nearly every sector. First, AI/Machine Learning and Cloud Computing (AWS/Azure) appear in hundreds of job postings but are either absent from or severely underrepresented in all three university curricula. Second, ERP systems — SAP, Oracle, and Microsoft Dynamics combined — appear in over 400 job postings, making them the single most demanded technical skill cluster in the dataset, yet none of the three universities teaches them by their market name. Third, professional and cross-functional skills such as Agile/Scrum, CI/CD, and regulatory compliance frameworks appear across all technical sectors but have no direct curriculum equivalent in any of the surveyed programs.
+The most critical gaps are concentrated in three areas that cut across nearly every sector. First, AI/Machine Learning and Cloud Computing (AWS/Azure) appear in hundreds of job postings but are either absent from or severely underrepresented in all three university curricula. Second, ERP systems - SAP, Oracle, and Microsoft Dynamics combined - appear in over 400 job postings, making them the single most demanded technical skill cluster in the dataset, yet none of the three universities teaches them by their market name. Third, professional and cross-functional skills such as Agile/Scrum, CI/CD, and regulatory compliance frameworks appear across all technical sectors but have no direct curriculum equivalent in any of the surveyed programs.
 
 At the university level, PSUT shows the strongest alignment in its technology-focused programs, reflecting its technology specialization. University of Petra demonstrates stronger performance in Business Intelligence, Data Science & AI, and Marketing.. However, no university achieves a strong skill match across all eight majors simultaneously. The gap is systemic, not isolated.
 
@@ -1135,21 +1169,21 @@ At the university level, PSUT shows the strongest alignment in its technology-fo
 
 ### Most Important Insights and Charts
 
-**The Skills Gap Analysis page** is the single most important visualization in this project. It condenses the entire curriculum-to-market comparison into one actionable view, showing — at a glance — which market skills remain unmatched after dictionary-based mapping and how large the gap is. The finding that Communication (832 postings), Problem Solving (540), and Data Analysis (325) remain among the top unmatched skills despite being teachable competencies is among the most actionable findings.
+**The Skills Gap Analysis page** is the single most important visualization in this project. It condenses the entire curriculum-to-market comparison into one actionable view, showing - at a glance - which market skills remain unmatched after dictionary-based mapping and how large the gap is. The finding that Communication (832 postings), Problem Solving (540), and Data Analysis (325) remain among the top unmatched skills despite being teachable competencies is among the most actionable findings.
 
 **Fig 01 (Skill Frequency Comparison)** is the most accessible insight for non-technical audiences. The side-by-side view of university teaching frequency versus job market demand frequency makes the mismatch immediately visible without any statistical background: Microsoft Excel is among the most demanded skills in the market and barely appears in any course; theoretical accounting subjects dominate university curricula while practical cross-functional skills dominate job postings.
 
-**Fig 03 (Association Rules)** is the most actionable chart for curriculum reform. Rather than listing all missing skills, it reveals which skills employers consistently require together — meaning a graduate missing one skill in a bundle fails to qualify for the role even if they possess the others.
+**Fig 03 (Association Rules)** is the most actionable chart for curriculum reform. Rather than listing all missing skills, it reveals which skills employers consistently require together - meaning a graduate missing one skill in a bundle fails to qualify for the role even if they possess the others.
 
 ---
 
 ### Evaluation and Interpretation of Results
 
-The 78% gap figure should be interpreted carefully. It does not mean that 78% of what employers need is completely absent from university classrooms. A significant portion of the gap is a **terminology mismatch**: universities teach financial statement preparation; employers list "Financial Reporting." Universities teach enterprise systems concepts; employers list "SAP" or "Oracle." The synonym dictionary built for this project already corrected for 54 common cases, but the underlying academic language still differs substantially from industry shorthand. If terminology were fully harmonized, the match rate would be meaningfully higher — though the genuine absence of tool-specific and emerging-technology training would still leave a substantial gap.
+The 78% gap figure should be interpreted carefully. It does not mean that 78% of what employers need is completely absent from university classrooms. A significant portion of the gap is a **terminology mismatch**: universities teach financial statement preparation; employers list "Financial Reporting." Universities teach enterprise systems concepts; employers list "SAP" or "Oracle." The synonym dictionary built for this project already corrected for 54 common cases, but the underlying academic language still differs substantially from industry shorthand. If terminology were fully harmonized, the match rate would be meaningfully higher - though the genuine absence of tool-specific and emerging-technology training would still leave a substantial gap.
 
-The K-Means clustering result (Fig 02) is particularly relevant to interpretation: the MENA job market segments into four distinct skill profiles (Core Finance & Accounting, Tech & Engineering, Sales & Commercial, Business & Compliance), and a single curriculum cannot align with all four simultaneously. This means the 66% gap is not a single gap — it is four different gaps depending on which career path a graduate pursues. Curriculum reform should therefore be differentiated by major track, not applied uniformly.
+The K-Means clustering result (Fig 02) is particularly relevant to interpretation: the MENA job market segments into four distinct skill profiles (Core Finance & Accounting, Tech & Engineering, Sales & Commercial, Business & Compliance), and a single curriculum cannot align with all four simultaneously. This means the 66% gap is not a single gap - it is four different gaps depending on which career path a graduate pursues. Curriculum reform should therefore be differentiated by major track, not applied uniformly.
 
-The Apriori association rule finding (Fig 03) adds a compounding dimension: employers evaluate skill bundles, not individual skills. A graduate who learns Accounting Principles but not ERP Systems fails to qualify for roles that require both — even if they are otherwise well-prepared. This means curriculum gaps have a multiplier effect: a missing skill in a co-occurrence bundle effectively invalidates the other skills in that bundle for the roles that require the full set.
+The Apriori association rule finding (Fig 03) adds a compounding dimension: employers evaluate skill bundles, not individual skills. A graduate who learns Accounting Principles but not ERP Systems fails to qualify for roles that require both - even if they are otherwise well-prepared. This means curriculum gaps have a multiplier effect: a missing skill in a co-occurrence bundle effectively invalidates the other skills in that bundle for the roles that require the full set.
 
 ---
 
@@ -1159,19 +1193,19 @@ The Apriori association rule finding (Fig 03) adds a compounding dimension: empl
 The most immediate, highest-impact change across all three universities is the integration of named industry tools into existing courses. Adding SAP or Oracle demonstrations into Enterprise Systems courses, incorporating AWS or Azure labs into Cloud or Networking courses, and teaching Python and SQL within existing data analysis courses would close a large portion of the terminology gap without requiring new course creation. These are changes that can be implemented within a single semester update cycle.
 
 **For Data Science and AI programs specifically:**
-All three universities need urgent curriculum updates in this area. The sector has the highest job posting volume in the dataset (348 jobs) and among the lowest curriculum coverage scores. MLOps, Feature Engineering, and Deep Learning are not niche specializations — they are the baseline technical vocabulary of the field as it exists in the MENA market today. A dedicated practical ML pipeline course covering model deployment, not just model training, would address the most critical gap in this sector.
+All three universities need urgent curriculum updates in this area. The sector has the highest job posting volume in the dataset (348 jobs) and among the lowest curriculum coverage scores. MLOps, Feature Engineering, and Deep Learning are not niche specializations - they are the baseline technical vocabulary of the field as it exists in the MENA market today. A dedicated practical ML pipeline course covering model deployment, not just model training, would address the most critical gap in this sector.
 
 **For Cybersecurity programs:**
 Cloud security, risk management frameworks, and networking tools are sector-defining skills with high demand and low curriculum presence. These topics are mature enough to be standardized into curricula and are covered by widely available frameworks (NIST, CompTIA, SANS) that universities could adopt as reference syllabi.
 
 **For students and career advisors:**
-Students in any of the eight programs should treat the underrepresented skills identified in this project as a self-study roadmap. The skills most likely to close the employability gap — Microsoft Excel, Python, SQL, and at least one cloud platform — are all available through free or low-cost online certifications. A structured self-development plan targeting these skills alongside the university curriculum would substantially improve a graduate's market readiness without waiting for institutional reform.
+Students in any of the eight programs should treat the underrepresented skills identified in this project as a self-study roadmap. The skills most likely to close the employability gap - Microsoft Excel, Python, SQL, and at least one cloud platform - are all available through free or low-cost online certifications. A structured self-development plan targeting these skills alongside the university curriculum would substantially improve a graduate's market readiness without waiting for institutional reform.
 
 **For employers recruiting Jordanian graduates:**
-The data confirms that Jordanian graduates arrive with strong conceptual foundations — particularly in accounting principles, software engineering theory, and business administration frameworks — but limited exposure to the named tools and cross-functional practices that define day-to-day work in the region. Structured onboarding programs that bridge tool-specific skills (ERP, cloud platforms, BI tools) are likely to yield faster productivity than programs that reteach conceptual foundations.
+The data confirms that Jordanian graduates arrive with strong conceptual foundations - particularly in accounting principles, software engineering theory, and business administration frameworks - but limited exposure to the named tools and cross-functional practices that define day-to-day work in the region. Structured onboarding programs that bridge tool-specific skills (ERP, cloud platforms, BI tools) are likely to yield faster productivity than programs that reteach conceptual foundations.
 
 **Scalability of this approach:**
-The data pipeline built for this project — scraping, LLM-assisted extraction, synonym normalization, and Power BI visualization — is repeatable. Running it annually would allow universities to track whether curriculum reforms are closing the gap over time, creating a feedback loop between education and employment that currently does not exist in the Jordanian higher education system.
+The data pipeline built for this project - scraping, LLM-assisted extraction, synonym normalization, and Power BI visualization - is repeatable. Running it annually would allow universities to track whether curriculum reforms are closing the gap over time, creating a feedback loop between education and employment that currently does not exist in the Jordanian higher education system.
 ### Recommendations from Student Questionnaire
 
 (https://docs.google.com/forms/d/e/1FAIpQLSdYpr_gesA6oSDuWqPn9NoeB0P1NXGCgPm_vsk-PeI9HDyR1A/viewform?usp=sharing&ouid=100248281304024658561)
@@ -1183,17 +1217,17 @@ confirmation from the student perspective.
 
 ![alt text](../images/survey.jpeg)
 
-![google form2](../images/survey2.jpeg)
+
 
 ![google form3](../images/survey3.jpeg)
 
 
 
 **1. Universities should publish a clean, updated skill list for every 
-course — every semester**
+course - every semester**
 
 The curriculum data collected from university websites contained 
-significant noise — approximately 14% of extracted content consisted of 
+significant noise - approximately 14% of extracted content consisted of 
 full sentences rather than discrete skills, such as "Upon Completion Of 
 This Course" or "These Include Methods To Approximate Roots Of Functions." 
 Additionally, no curriculum document carried a timestamp, making it 
@@ -1210,14 +1244,14 @@ as secondary**
 
 Across 2,000 MENA job postings, Collaboration appears 1,085 times, 
 Communication 832 times, Deadline Management 611 times, and Problem 
-Solving 540 times — making them the four most demanded skills in the 
+Solving 540 times - making them the four most demanded skills in the 
 entire dataset. None of these appear explicitly in any of the three 
 universities' curricula, and only 19 questionnaire respondents reported 
 Communication as a self-developed skill. Every major should incorporate 
 project-based assessments that require real teamwork, written technical 
 reports, and stakeholder presentations. A structured final-year capstone 
-that simulates an actual workplace environment — with enforced deadlines, 
-formal presentations, and cross-functional collaboration — would address 
+that simulates an actual workplace environment - with enforced deadlines, 
+formal presentations, and cross-functional collaboration - would address 
 this gap systematically across all eight majors at once.
 
 **3. Certifications should be structured into the programme, not left 
@@ -1225,13 +1259,13 @@ as a private student initiative**
 
 Questionnaire responses revealed that 39 students hold Power BI 
 certification, 20 hold Tableau, 13 hold PMP, 4 hold CompTIA Security+, 
-and 3 hold CPA — yet none of these certifications are mentioned, 
+and 3 hold CPA - yet none of these certifications are mentioned, 
 encouraged, or formally integrated into any curriculum at the three 
 universities. Universities should map relevant industry certifications 
 to each major, negotiate bulk exam pricing with providers such as 
 Microsoft, Tableau, and CompTIA, and offer elective credit to students 
 who pass them during their degree. The questionnaire data confirms that 
-students are already pursuing these certifications independently — the 
+students are already pursuing these certifications independently - the 
 institution simply needs to formalise and support what students are 
 already doing on their own.
 
