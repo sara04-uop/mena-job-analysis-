@@ -118,7 +118,7 @@ This project investigates whether the skills taught in Jordanian university curr
 | 3 | Apriori Association Rule Mining | Discover which skills consistently co-occur in job postings and must be taught as a bundle |
 ---
 
-## 📊 [Power BI Dashboard](https://app.powerbi.com/links/1OXa1o48J2?ctid=97e5760c-fa12-4aae-b4e4-31b43f04e79d&pbi_source=linkShare)
+## 📊 [Power BI Dashboard](https://app.powerbi.com/links/zq8FK69Pqe?ctid=97e5760c-fa12-4aae-b4e4-31b43f04e79d&pbi_source=linkShare) 
 
 **An interactive 4-page dashboard summarizing the full findings.**
 
